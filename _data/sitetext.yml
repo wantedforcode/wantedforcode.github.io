@@ -11,25 +11,25 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to our Studio!
-    text: It's Nice To Meet You
-    button: Tell Me More
+    title: Turning Ideas into Digital Reality
+    text: We help startups and early-stage projects succeed with cutting-edge tech solutions
+    button: Discover Our Services
     buttonlink: "#services"
 
   services:
-    title: "Services"
-    text: "Lorem ipsum"
+    title: "Our Services"
+    text: "We deliver high-quality technological solutions tailored to your specific needs"
     section: services
     list:
-      - title: "E-Commerce"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
-      - title: "Responsive Design"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-laptop
-      - title: "[Markdown](https://en.wikipedia.org/wiki/Markdown)"
-        desc: "Your description here, full **Markdown** support"
-        icon: fab fa-markdown
+      - title: "MVP Development"
+        desc: "We build minimal viable products that validate your business idea quickly, focusing on core features that bring immediate value to your users."
+        icon: fas fa-rocket #find more at https://fontawesome.com/icons
+      - title: "Tech Consulting"
+        desc: "Our team of experts will help you choose the right technologies and architecture to build scalable, maintainable and efficient digital products."
+        icon: fas fa-lightbulb
+      - title: "Full-Stack Solutions"
+        desc: "From intuitive front-end experiences to robust back-end systems, we create complete digital solutions that deliver exceptional user experiences."
+        icon: fas fa-layer-group
 
   portfolio:
     title: "Portfolio"
