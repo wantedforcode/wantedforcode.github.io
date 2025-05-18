@@ -17,7 +17,7 @@ remote_theme: raviriley/agency-jekyll-theme
 url    : "https://wantedforcode.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 
-title      : Wanted for code
+title      : WANTED FOR CODE
 email      : admin@wantedforcode.com #this is also the email contact forms will go to
 description: "Wanted for Code is a company dedicated to helping startups, ideas, and early-stage projects succeed through cutting-edge technological solutions, delivering high-quality products quickly and efficiently."
 author     : Your Name
