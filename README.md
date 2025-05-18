@@ -1,3 +1,62 @@
+# Wanted For Code
+
+Un sitio web para desarrolladores creado usando Jekyll con el tema Agency.
+
+## Ejecutar en Local
+
+### Requisitos previos
+
+- Ruby (versión 2.6.0 o superior)
+- Bundler
+
+### Pasos para ejecutar el proyecto
+
+1. **Clonar el repositorio**
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd wantedforcode
+```
+
+2. **Instalar las dependencias**
+
+```bash
+bundle install
+```
+
+3. **Iniciar el servidor local**
+
+```bash
+bundle exec jekyll serve
+```
+
+4. **Acceder al sitio**
+
+Abre tu navegador y visita: [http://localhost:4000](http://localhost:4000)
+
+### Uso con diferentes versiones de Ruby (rbenv)
+
+Si tienes múltiples versiones de Ruby instaladas con rbenv:
+
+```bash
+# Ver versiones disponibles
+rbenv versions
+
+# Usar una versión específica en el proyecto
+rbenv local 3.2.2
+
+# Verificar que estás usando la versión correcta
+ruby -v
+
+# Instalar dependencias y ejecutar
+bundle install
+bundle exec jekyll serve
+```
+
+---
+
+## Información Original del Tema
+
 # [Agency Jekyll Theme](https://github.com/raviriley/agency-jekyll-theme) Starter Template
 [![RubyGems Downloads](https://img.shields.io/gem/dt/jekyll-agency.svg)](https://rubygems.org/gems/jekyll-agency)
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/raviriley/agency-jekyll-theme/blob/master/LICENSE.txt)
