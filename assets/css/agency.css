@@ -34,6 +34,7 @@ h6 {
 
 .page-section {
   padding: 100px 0;
+  position: relative;
 }
 .page-section h2.section-heading {
   font-size: 40px;
@@ -90,8 +91,8 @@ img::-moz-selection {
   border-color: #4db6ac;
 }
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #4db6ac !important;
-  border-color: #0a3b3b !important;
+  border-color: #4db6ac !important;
+  background-color: #0a3b3b !important;
   color: #e6d7c3;
 }
 .btn-primary:active, .btn-primary:focus {
@@ -178,10 +179,13 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 header.masthead .intro-text {
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding: 0;
+  width: 100%;
 }
 header.masthead .intro-text .intro-lead-in {
   font-size: 22px;
@@ -203,8 +207,7 @@ header.masthead .intro-text .intro-heading {
 
 @media (min-width: 768px) {
   header.masthead .intro-text {
-    padding-top: 150px;
-    padding-bottom: 200px;
+    padding: 0;
   }
   header.masthead .intro-text .intro-lead-in {
     font-size: 40px;
