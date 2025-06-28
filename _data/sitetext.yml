@@ -170,35 +170,35 @@ en-AU:
 # -------
 es: &DEFAULT_ES
   header:
-    title: ¡Bienvenido a nuestro Estudio!
-    text: Es un placer conocerle
-    button: Ver más
+    title: Convirtiendo Ideas en Realidad Digital
+    text: Ayudamos a startups y proyectos en fase inicial a tener éxito con soluciones tecnológicas de vanguardia
+    button: Descubre Nuestros Servicios
     buttonlink: "#servicios"
 
   services:
-    title: "Servicios"
-    text: "Lorem ipsum"
+    title: "Nuestros Servicios"
+    text: "Entregamos soluciones tecnológicas de alta calidad adaptadas a tus necesidades específicas"
     section: servicios
     list:
-      - title: "Comercio Electrónico"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
-      - title: "Diseño Responsivo"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-laptop
-      - title: "[Markdown](https://en.wikipedia.org/wiki/Markdown)"
-        desc: "Su descripción aquí, soporte completo de **Markdown**"
-        icon: fab fa-markdown
+      - title: "Desarrollo de MVP"
+        desc: "Construimos productos mínimos viables que validan tu idea de negocio rápidamente, enfocándonos en las características principales que aportan valor inmediato a tus usuarios."
+        icon: fas fa-rocket #find more at https://fontawesome.com/icons
+      - title: "Consultoría Tecnológica"
+        desc: "Nuestro equipo de expertos te ayudará a elegir las tecnologías y arquitectura adecuadas para construir productos digitales escalables, mantenibles y eficientes."
+        icon: fas fa-lightbulb
+      - title: "Soluciones Full-Stack"
+        desc: "Desde experiencias front-end intuitivas hasta sistemas back-end robustos, creamos soluciones digitales completas que ofrecen experiencias de usuario excepcionales."
+        icon: fas fa-layer-group
 
   portfolio:
     title: "Portafolio"
-    text: "Lorem ipsum dolor sit amet consectetur."
+    text: "Algunos ejemplos de nuestros proyectos más destacados."
     section: portafolio
     closebutton: "Cerrar Proyecto"
 
   timeline:
     title: "Cronología"
-    text: "Lorem ipsum timeline"
+    text: "Nuestra trayectoria a lo largo del tiempo"
     section: cronologia
     # left is the default
     #start_align: "left"
@@ -228,9 +228,9 @@ es: &DEFAULT_ES
     end: "¡Se parte <br> de Nuestra <br> Historia!"
 
   about:
-    title: "Sobre nosotros"
+    title: "Sobre Nosotros"
     text: "nuestra historia"
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
+    body: "WANTED FOR CODE es una empresa dedicada a ayudar a startups, ideas y proyectos en fase inicial a tener éxito mediante soluciones tecnológicas de vanguardia, entregando productos de alta calidad de manera rápida y eficiente. **Markdown** soportado."
     section: nosotros
 
   clients:
@@ -253,8 +253,8 @@ es: &DEFAULT_ES
 
   team:
     title: "NUESTRO INCREÍBLE EQUIPO"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
+    text: "Profesionales apasionados por la tecnología y la innovación."
+    subtext: Contamos con un equipo de expertos en diferentes áreas de la tecnología, comprometidos con la excelencia y la entrega de soluciones que realmente marcan la diferencia. Cada miembro aporta habilidades únicas a nuestros proyectos. **Markdown** soportado.
     section: equipo
     people:
       - name: "Kay Garland"
@@ -290,7 +290,7 @@ es: &DEFAULT_ES
 
   contact:
     title: "Contáctenos"
-    text: "Lorem ipsum or call 123456789"
+    text: "¿Tienes un proyecto en mente? ¡Escríbenos o llama al 123456789!"
     section: contacto
     name: "Nombre*"
     name-validation: "Por favor ingrese su nombre."

@@ -20,12 +20,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 title      : WANTED FOR CODE
 email      : admin@wantedforcode.com #this is also the email contact forms will go to
 description: "Wanted for Code is a company dedicated to helping startups, ideas, and early-stage projects succeed through cutting-edge technological solutions, delivering high-quality products quickly and efficiently."
-author     : Your Name
+author     : Wanted For Code
 # logo:     #optional, defaults to site title
   # path: assets\img\clients\creative-market.jpg
   # height: 60 #height in px, defaults to 52px
 
-locale: "en-US" # See available languages in _data/sitetext.yml
+locale: "en" # See available languages in _data/sitetext.yml
 
 analytics:
   google: #Google Analytics tracking code here
