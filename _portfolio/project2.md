@@ -31,7 +31,6 @@ Metagigs is transforming how gaming studios approach player engagement and monet
 {:.list-inline}
 - **Duration**: May 2024 – Present
 - **Client**: Metagigs (Startup)
-- **Role**: Full Stack Engineer
 - **Category**: Gaming Technology / Platform Development
 - **Technologies**: Nim, React, React Native, MongoDB, Redis, Jest, JavaScript
 - **Website**: [metagigs.gg](https://www.metagigs.gg/)

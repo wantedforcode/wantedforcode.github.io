@@ -27,7 +27,6 @@ The project showcases advanced .NET 8 capabilities including background services
 {:.list-inline}
 - **Duration**: March 2025 – June 2025
 - **Client**: Food Experts / NEOM
-- **Role**: .NET Backend Engineer
 - **Category**: Environmental Technology / AgTech
 - **Technologies**: .NET 8, ASP.NET Web API, Entity Framework, Azure Web Apps, Azure SQL Server, Azure App Insights, Serilog, GitHub Actions
 

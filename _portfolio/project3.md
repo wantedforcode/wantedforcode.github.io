@@ -34,7 +34,6 @@ Smika Connect addresses critical challenges in the hospitality and healthcare se
 {:.list-inline}
 - **Duration**: March 2024 – December 2024
 - **Client**: Smika (Startup)
-- **Role**: Full Stack Engineer (Backend Focus)
 - **Category**: IoT / Sustainability Technology
 - **Technologies**: .NET 8, ASP.NET Web API, Entity Framework, Azure Functions, Azure Storage Queues, Azure DevOps, Vue.js, xUnit, SonarCloud
 - **Website**: [smika.es](https://www.smika.es/)
