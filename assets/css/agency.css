@@ -1,21 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,700&display=swap');
 
 body {
-  over.btn-primary {
-  background-color: #061014;
-  border-color: #49EBED;
-}
-.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #49EBED !important;
-  border-color: #061014 !important;
-  color: #C9B5A4;
-}
-.btn-primary:active, .btn-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(73, 235, 237, 0.5) !important;
-}en;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
   background-color: #C9B5A4;
   color: #061014;
+}
+
+/* Quote styling */
+blockquote, q, .quote {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+}
+@media (min-width: 768px) {
+  blockquote, q, .quote {
+    font-size: 18px;
+  }
+}
+
+/* Caption styling */
+.caption, figcaption, .image-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .caption, figcaption, .image-caption {
+    font-size: 14px;
+  }
 }
 
 p {
@@ -33,14 +52,71 @@ a:hover {
   color: #061014 !important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+/* Title (e.g., main hero title) */
+h1.title, .main-title, header.masthead .intro-text .intro-heading {
+  font-family: 'Bitter', serif;
+  font-size: 56px;
   font-weight: 700;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+@media (min-width: 768px) {
+  h1.title, .main-title, header.masthead .intro-text .intro-heading {
+    font-size: 64px;
+  }
+}
+
+/* Subtitle (e.g., hero subtitle) */
+h2.subtitle, .main-subtitle, header.masthead .intro-text .intro-lead-in {
+  font-family: 'Bitter', serif;
+  font-size: 32px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  h2.subtitle, .main-subtitle, header.masthead .intro-text .intro-lead-in {
+    font-size: 40px;
+  }
+}
+
+/* Headings (h1–h6 except .title/.subtitle) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+}
+h1:not(.title):not(.main-title),
+h2:not(.subtitle):not(.main-subtitle),
+h3, h4, h5, h6 {
+  font-size: 28px;
+}
+@media (min-width: 768px) {
+  h1:not(.title):not(.main-title),
+  h2:not(.subtitle):not(.main-subtitle),
+  h3, h4, h5, h6 {
+    font-size: 32px;
+  }
+}
+
+/* Subheading (e.g., section subheadings) */
+.subheading, h3.section-subheading, .section-subheading {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 22px;
+  font-style: italic;
+}
+@media (min-width: 768px) {
+  .subheading, h3.section-subheading, .section-subheading {
+    font-size: 35px;
+  }
+}
+
+/* Section Title */
+.section-title, h2.section-heading, .page-section h2.section-heading {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .section-title, h2.section-heading, .page-section h2.section-heading {
+    font-size: 20px;
+  }
 }
 
 .page-section {
@@ -51,7 +127,7 @@ h6 {
   font-size: 40px;
   margin-top: 0;
   margin-bottom: 15px;
-  font-family: "Rye", cursive, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Bitter', serif, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -125,7 +201,7 @@ img::-moz-selection {
 }
 #mainNav .navbar-brand {
   color: #C9B5A4;
-  font-family: "Rye", cursive, "Kaushan Script", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Bitter', serif, "Kaushan Script", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
   color: #49EBED;
@@ -203,7 +279,7 @@ header.masthead .intro-text .intro-lead-in {
   font-style: italic;
   line-height: 22px;
   margin-bottom: 25px;
-  font-family: "Rye", cursive, "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Bitter', serif, "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   letter-spacing: 0.5px;
 }
 header.masthead .intro-text .intro-heading {
@@ -225,7 +301,7 @@ header.masthead .intro-text .intro-heading {
     font-style: italic;
     line-height: 40px;
     margin-bottom: 25px;
-    font-family: "Rye", cursive, "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Bitter', serif, "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     letter-spacing: 0.5px;
   }
   header.masthead .intro-text .intro-heading {
@@ -294,7 +370,7 @@ header.masthead .intro-text .intro-heading {
 #portfolio .portfolio-item .portfolio-caption h4 {
   margin: 0;
   text-transform: none;
-  font-family: "Rye", cursive, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Bitter', serif, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 #portfolio .portfolio-item .portfolio-caption p {
@@ -469,7 +545,7 @@ header.masthead .intro-text .intro-heading {
 }
 .timeline .timeline-heading h4.subheading {
   text-transform: none;
-  font-family: "Rye", cursive, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Bitter', serif, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 .timeline .timeline-body > ul,
@@ -562,7 +638,7 @@ header.masthead .intro-text .intro-heading {
   margin-top: 25px;
   margin-bottom: 0;
   text-transform: none;
-  font-family: "Rye", cursive, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Bitter', serif, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
 }
 .team-member p {
