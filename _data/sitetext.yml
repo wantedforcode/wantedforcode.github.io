@@ -40,7 +40,7 @@ en: &DEFAULT_EN
   about:
     title: "About Us"
     text: "our story"
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
+    body: "WANTED FOR CODE is a company dedicated to helping startups, ideas, and early-stage projects succeed through cutting-edge technological solutions, delivering high-quality products quickly and efficiently."
     section: about
 
   clients:
@@ -64,7 +64,7 @@ en: &DEFAULT_EN
   team:
     title: "OUR AMAZING TEAM"
     text: "Meet the people who make it all happen."
-    subtext: "Professionals passionate about technology and innovation."
+    subtext: "Passionate professionals about technology and innovation."
     section: team
     people:
       - name: "Carlos Bourque"
@@ -205,7 +205,7 @@ es: &DEFAULT_ES
   team:
     title: "NUESTRO INCREÍBLE EQUIPO"
     text: "Profesionales apasionados por la tecnología y la innovación."
-    subtext: Contamos con un equipo de expertos en diferentes áreas de la tecnología, comprometidos con la excelencia y la entrega de soluciones que realmente marcan la diferencia. Cada miembro aporta habilidades únicas a nuestros proyectos. **Markdown** soportado.
+    subtext: Contamos con un equipo de expertos en diferentes áreas de la tecnología, comprometidos con la excelencia y la entrega de soluciones que realmente marcan la diferencia. Cada miembro aporta habilidades únicas a nuestros proyectos.
     section: equipo
     people:
       - name: "Kay Garland"
