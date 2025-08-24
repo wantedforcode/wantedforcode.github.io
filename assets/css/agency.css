@@ -1,6 +1,3 @@
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
@@ -455,6 +452,11 @@ header.masthead .intro-text .intro-heading {
   background-color: #212529;
 }
 
+/* Hide the timeline section completely */
+#timeline, .timeline-section, section#timeline, section#cronologia {
+  display: none !important;
+}
+
 .timeline {
   position: relative;
   padding: 0;
@@ -731,6 +733,11 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #49EBED;
   color: #061014;
+}
+
+/* Make the Team section background white like the portfolio section */
+section#team {
+  background: #fff !important;
 }
 
 /*# sourceMappingURL=agency.css.map */
