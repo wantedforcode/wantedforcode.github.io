@@ -86,6 +86,12 @@ en: &DEFAULT_EN
     subject: "Contact Form Submission"
     submit: "Send Message"
 
+  posts:
+    title: "Blog"
+    text: "Nuestras últimas publicaciones sobre tecnología y desarrollo"
+    section: posts
+    default-image: "/assets/img/portfolio/01-thumbnail.jpg"
+
   footer:
     legal: "Privacy Policy"
     social:

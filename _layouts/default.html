@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}">
+  <head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ site.baseurl }}/assets/favicon.ico">
+    {% if site.analytics.google %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "{{ site.analytics.google }}");
+    </script>
+    <!-- End Google Analytics -->
+    {% endif %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.author }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <title>{% if page.title %}{{ page.title | append: " | " | append: site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom fonts for this template -->
+    <link href="{{ site.baseurl }}/assets/css/all.min.css" rel="stylesheet" type="text/css">
+    {% if site.data.style.fonts_urls %}
+      {% for font_url in site.data.style.fonts_urls %}
+        <link href="{{font_url}}" rel="stylesheet" type="text/css">
+      {% endfor %}
+    {% else %}
+      <link href="{{ site.baseurl }}/assets/css/all.min.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+      <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    {% endif %}
+
+    <!-- Custom styles for this theme -->
+    <link href="{{ site.baseurl }}/assets/css/agency.css" rel="stylesheet" />
+
+    <!-- Page container change top padding when nav shrinks -->
+    {% if page.layout == "page" %}
+    <style>
+      #pagecontainer {
+        padding-top: 150px;
+      }
+      @media (max-width: 991.98px) {
+        #pagecontainer {
+          padding-top: 100px;
+        }
+      }
+    </style>
+    {% endif %}
+  </head>
+
+  <body id="page-top">
+    {{ content }}
+
+    <!-- Footer -->
+    <footer class="footer" id="footer" style="background-color: white">
+      <div class="container">
+        {% include footer.html %}
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{{ site.baseurl }}/assets/js/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{{ site.baseurl }}/assets/js/jqBootstrapValidation.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{{ site.baseurl }}/assets/js/agency.min.js"></script>
+  </body>
+</html>

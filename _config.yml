@@ -32,6 +32,9 @@ analytics:
 
 collections:
   portfolio:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
 
 markdown: kramdown
 

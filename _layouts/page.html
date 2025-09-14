@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{% if page.background %}
+<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl }}')">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-heading text-uppercase">{{ page.title }}</div>
+      {% if page.subtitle %}
+      <div class="intro-lead-in">{{ page.subtitle }}</div>
+      {% endif %}
+    </div>
+  </div>
+</header>
+{% else %}
+{% include navheader.html %}
+{% endif %}
+
+<section class="page-section" id="{{ page.section | default: page.title | slugify }}">
+  <div class="container">
+    {{ content }}
+  </div>
+</section>
