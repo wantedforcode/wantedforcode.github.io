@@ -88,6 +88,13 @@ en: &DEFAULT_EN
 
   footer:
     legal: "Privacy Policy"
+    address: 
+      name: "WantedForCode SL"
+      cif: "B22516884"
+      addressLine1: "C/ San Miguel, 3"
+      addressLine2: "Fuengirola (29640), Málaga, España"
+      email: "admin@wantedforcode.com"
+      phone: "661091885"
     social:
       - url: https://www.linkedin.com/in/carlosbourque/
         icon: "fab fa-linkedin-in"
@@ -166,7 +173,7 @@ es: &DEFAULT_ES
   about:
     title: "Sobre Nosotros"
     text: "nuestra historia"
-    body: "WANTED FOR CODE es una empresa dedicada a ayudar a startups, ideas y proyectos en fase inicial a tener éxito mediante soluciones tecnológicas de vanguardia, entregando productos de alta calidad de manera rápida y eficiente. **Markdown** soportado."
+    body: "WANTED FOR CODE es una empresa dedicada a ayudar a startups, ideas y proyectos en fase inicial a tener éxito mediante soluciones tecnológicas de vanguardia, entregando productos de alta calidad de manera rápida y eficiente."
     section: nosotros
 
   clients:
@@ -241,6 +248,13 @@ es: &DEFAULT_ES
 
   footer:
     legal: "Política de Privacidad"
+    address: 
+      name: "WantedForCode SL"
+      cif: "B22516884"
+      addressLine1: "C/ San Miguel, 3"
+      addressLine2: "Fuengirola (29640), Málaga, España"
+      email: "admin@wantedforcode.com"
+      phone: "661091885"
     social:
       - url: https://twitter.com
         icon: "fab fa-twitter"
