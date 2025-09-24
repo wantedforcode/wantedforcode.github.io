@@ -17,10 +17,11 @@ remote_theme: raviriley/agency-jekyll-theme
 url    : "https://wantedforcode.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 
-title      : WANTED FOR CODE
-email      : admin@wantedforcode.com #this is also the email contact forms will go to
-description: "Wanted for Code is a company dedicated to helping startups, ideas, and early-stage projects succeed through cutting-edge technological solutions, delivering high-quality products quickly and efficiently."
-author     : Wanted For Code
+title      : WantedForCode
+tagline    : Cloud, Data & AI Solutions for Business Growth
+email      : contact@wantedforcode.com
+description: "WantedForCode helps startups and businesses grow with Cloud, Data and AI solutions, delivering high-quality software fast and securely."
+author     : WantedForCode
 logo:
   path: assets/img/logo-removebg-light.png
   height: 80 #height in px, adjust as needed
