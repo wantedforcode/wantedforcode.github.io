@@ -1,0 +1,272 @@
+#
+# Work based on https://github.com/mmistakes/minimal-mistakes/blob/master/_data/ui-text.yml
+#
+# Configuration: Add to _config.yml
+# locale: "en-US"  [YOUR PREFERRED LOCALE]
+#
+# How to use:
+# {{ site.data.ui-text[site.locale].<var_name> | default: 'text' }}
+
+# English (default)
+# -----------------
+en: &DEFAULT_EN
+  header:
+    title: Turning Ideas into Digital Reality
+    text: We help startups and early-stage projects succeed with cutting-edge tech solutions
+    button: Discover Our Services
+    buttonlink: "#services"
+
+  services:
+    title: "Our Services"
+    text: "We deliver high-quality technological solutions tailored to your specific needs"
+    section: services
+    list:
+      - title: "MVP Development"
+        desc: "We build minimal viable products that validate your business idea quickly, focusing on core features that bring immediate value to your users."
+        icon: fas fa-rocket #find more at https://fontawesome.com/icons
+      - title: "Tech Consulting"
+        desc: "Our team of experts will help you choose the right technologies and architecture to build scalable, maintainable and efficient digital products."
+        icon: fas fa-lightbulb
+      - title: "Full-Stack Solutions"
+        desc: "From intuitive front-end experiences to robust back-end systems, we create complete digital solutions that deliver exceptional user experiences."
+        icon: fas fa-layer-group
+
+  portfolio:
+    title: "Portfolio"
+    text: "Some examples of our most outstanding projects."
+    section: portfolio
+    closebutton: "Close Project"
+
+  about:
+    title: "About Us"
+    text: "our story"
+    body: "WANTED FOR CODE is a company dedicated to helping startups, ideas, and early-stage projects succeed through cutting-edge technological solutions, delivering high-quality products quickly and efficiently."
+    section: about
+
+  clients:
+    section: clients
+    max-height: 100px
+    horizontal-scrolling: "" #"yes/no"
+    list:
+      - title: "Forecoders"
+        url: https://www.forecoders.com/
+        logo: assets/img/clients/forecoders.png
+
+  team:
+    title: "OUR AMAZING TEAM"
+    text: "Meet the people who make it all happen."
+    subtext: "Passionate professionals about technology and innovation."
+    section: team
+    people:
+      - name: "Carlos Bourque"
+        role: "CEO & Co-founder"
+        image: assets/img/team/carlos.jpeg
+        social:
+          - url: https://www.linkedin.com/in/carlosbourque/
+            icon: fab fa-linkedin-in
+      - name: "Ramón Esteban"
+        role: "CTO & Co-founder"
+        image: assets/img/team/ramon.jpg
+        social:
+          - url: https://www.linkedin.com/in/ramonesteban78/
+            icon: fab fa-linkedin-in
+
+  contact:
+    title: "Contact Us"
+    text: "Do you have a project in mind? Let's chat!"
+    section: contact
+    name: "Name*"
+    name-validation: "Please enter your name."
+    email: "Email*"
+    email-validation: "Please enter your email address."
+    phone: "Phone Number"
+    phone-validation: "Please enter your phone number."
+    message: "Message*"
+    message-validation: "Please enter a message."
+    subject: "Contact Form Submission"
+    submit: "Send Message"
+
+  footer:
+    legal: "Privacy Policy"
+    address: 
+      name: "WantedForCode SL"
+      cif: "B22516884"
+      addressLine1: "C/ San Miguel, 3"
+      addressLine2: "Fuengirola (29640), Málaga, España"
+      email: "admin@wantedforcode.com"
+      phone: "661091885"
+    social:
+      - url: https://www.linkedin.com/in/carlosbourque/
+        icon: "fab fa-linkedin-in"
+      - url: https://github.com/wantedforcode
+        icon: "fab fa-github"
+en-US:
+  <<: *DEFAULT_EN
+en-CA:
+  <<: *DEFAULT_EN
+en-GB:
+  <<: *DEFAULT_EN
+en-AU:
+  <<: *DEFAULT_EN
+
+# Spanish
+# -------
+es: &DEFAULT_ES
+  header:
+    title: Convirtiendo Ideas en Realidad Digital
+    text: Ayudamos a startups y proyectos en fase inicial a tener éxito con soluciones tecnológicas de vanguardia
+    button: Descubre Nuestros Servicios
+    buttonlink: "#servicios"
+
+  services:
+    title: "Nuestros Servicios"
+    text: "Entregamos soluciones tecnológicas de alta calidad adaptadas a tus necesidades específicas"
+    section: servicios
+    list:
+      - title: "Desarrollo de MVP"
+        desc: "Construimos productos mínimos viables que validan tu idea de negocio rápidamente, enfocándonos en las características principales que aportan valor inmediato a tus usuarios."
+        icon: fas fa-rocket #find more at https://fontawesome.com/icons
+      - title: "Consultoría Tecnológica"
+        desc: "Nuestro equipo de expertos te ayudará a elegir las tecnologías y arquitectura adecuadas para construir productos digitales escalables, mantenibles y eficientes."
+        icon: fas fa-lightbulb
+      - title: "Soluciones Full-Stack"
+        desc: "Desde experiencias front-end intuitivas hasta sistemas back-end robustos, creamos soluciones digitales completas que ofrecen experiencias de usuario excepcionales."
+        icon: fas fa-layer-group
+
+  portfolio:
+    title: "Portafolio"
+    text: "Algunos ejemplos de nuestros proyectos más destacados."
+    section: portafolio
+    closebutton: "Cerrar Proyecto"
+
+  # timeline:
+  #   title: "Cronología"
+  #   text: "Nuestra trayectoria a lo largo del tiempo"
+  #   section: cronologia
+  #   # left is the default
+  #   #start_align: "left"
+  #   events:
+  #     - title: "Nuestro Humilde Comienzo"
+  #       year: "2009-2011"
+  #       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+  #       image: assets/img/timeline/1.jpg
+  #       alt:
+  #     - title: "Una Agencia nace"
+  #       year: "March 2011"
+  #       desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+  #       image: assets/img/timeline/2.jpg
+  #       alt:
+  #     - title: "La plantilla Jekyll es creada"
+  #       year: "2019"
+  #       desc: "Ravi Riley convirtió Agency, una plantilla basada en Bootstrap, en una plantilla de Jekyll. La plantilla Jekyll puede ser instalada commo una gema de Ruby (Ruby gem) o remotamente. Para más información, visite la documentación."
+  #       image: assets/img/timeline/3.jpg
+  #       alt: image alt text
+  #     - title: "Título"
+  #       year: "2009-2011"
+  #       desc: "Su descripción aquí, **Markdown** es soportado completamente."
+  #       image: assets/img/timeline/4.jpg
+  #       alt:
+  #       # you can enforce the alignment
+  #       align: right
+  #   end: "¡Se parte <br> de Nuestra <br> Historia!"
+
+  about:
+    title: "Sobre Nosotros"
+    text: "nuestra historia"
+    body: "WANTED FOR CODE es una empresa dedicada a ayudar a startups, ideas y proyectos en fase inicial a tener éxito mediante soluciones tecnológicas de vanguardia, entregando productos de alta calidad de manera rápida y eficiente."
+    section: nosotros
+
+  clients:
+    section: clientes
+    max-height: 100px
+    horizontal-scrolling: "" #"yes/no"
+    list:
+      - title: "envato"
+        url: https://github.com/raviriley/agency-jekyll-theme
+        logo: assets/img/clients/envato.jpg
+      - title: "designmodo"
+        url: https://github.com/raviriley/agency-jekyll-theme
+        logo: assets/img/clients/designmodo.jpg
+      - title: "themeforest"
+        url: https://github.com/raviriley/agency-jekyll-theme
+        logo: assets/img/clients/themeforest.jpg
+      - title: "Creative Market"
+        url: https://github.com/raviriley/agency-jekyll-theme
+        logo: assets/img/clients/creative-market.jpg
+
+  team:
+    title: "NUESTRO INCREÍBLE EQUIPO"
+    text: "Profesionales apasionados por la tecnología y la innovación."
+    subtext: Contamos con un equipo de expertos en diferentes áreas de la tecnología, comprometidos con la excelencia y la entrega de soluciones que realmente marcan la diferencia. Cada miembro aporta habilidades únicas a nuestros proyectos.
+    section: equipo
+    people:
+      - name: "Kay Garland"
+        role: "Lead Designer"
+        image: assets/img/team/500x500.jpg
+        social:
+          - url: https://twitter.com
+            icon: fab fa-twitter
+          - url: https://facebook.com
+            icon: fab fa-facebook-f
+          - url: https://linkedin.com
+            icon: fab fa-linkedin-in
+      - name: "Larry Parker"
+        role: "Lead Marketer"
+        image: assets/img/team/2.jpg
+        social:
+          - url: https://twitter.com
+            icon: fab fa-twitter
+          - url: https://facebook.com
+            icon: fab fa-facebook-f
+          - url: https://linkedin.com
+            icon: fab fa-linkedin-in
+      - name: "Diana Perterson"
+        role: "Lead Developer"
+        image: assets/img/team/500x500.jpg
+        social:
+          - url: https://twitter.com
+            icon: fab fa-twitter
+          - url: https://facebook.com
+            icon: fab fa-facebook-f
+          - url: https://linkedin.com
+            icon: fab fa-linkedin-in
+
+  contact:
+    title: "Contáctenos"
+    text: "¿Tienes un proyecto en mente? ¡Escríbenos o llama al 123456789!"
+    section: contacto
+    name: "Nombre*"
+    name-validation: "Por favor ingrese su nombre."
+    email: "Correo Electrónico*"
+    email-validation: "Por favor ingrese su correo electrónico."
+    phone: "Número Telefónico*"
+    phone-validation: "Por favor ingrese su número telefónico."
+    message: "Mensaje*"
+    message-validation: "Por favor escriba un mensaje."
+    subject: "Envío del formulario de contacto"
+    submit: "Enviar Mensaje"
+
+  footer:
+    legal: "Política de Privacidad"
+    address: 
+      name: "WantedForCode SL"
+      cif: "B22516884"
+      addressLine1: "C/ San Miguel, 3"
+      addressLine2: "Fuengirola (29640), Málaga, España"
+      email: "admin@wantedforcode.com"
+      phone: "661091885"
+    social:
+      - url: https://twitter.com
+        icon: "fab fa-twitter"
+      - url: https://facebook.com
+        icon: "fab fa-facebook-f"
+      - url: https://linkedin.com
+        icon: "fab fa-linkedin-in"
+      - url: https://github.com/raviriley/agency-jekyll-theme
+        icon: "fab fa-github"
+      - url: https://instagram.com
+        icon: "fab fa-instagram"
+es-ES:
+  <<: *DEFAULT_ES
+es-CO:
+  <<: *DEFAULT_ES

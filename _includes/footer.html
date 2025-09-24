@@ -1,0 +1,79 @@
+<!-- Footer -->
+<footer class="footer" id="footer" style="background-color: white">
+  <div class="container">
+    
+    <div class="row align-items-center">
+      <div class="col-md-3">
+        <span class="copyright">Copyright &copy; {{ site.author }} {{ 'now' | date: "%Y" }}</span>
+      </div>
+
+      <!-- Address -->
+      {% if site.locale and site.data.sitetext[site.locale].footer.address %}
+      {% assign footer = site.data.sitetext[site.locale].footer %}
+      {% else %}
+      {% assign footer = site.data.sitetext.footer %}
+      {% endif %}
+      
+      {% if footer.address %}
+      <div class="col-md-3">
+        <div class="address-footer text-left">
+          <p class="mb-0"> 
+            <span class="address-text">
+              <span class="address-line"><i class="fas fa-map-marker-alt text-primary mr-2"></i>{{ footer.address.name }}</span>
+              <span class="address-line-2">{{ footer.address.cif }}</span>
+              <span class="address-line-2">{{ footer.address.addressLine1 }}</span>
+              <span class="address-line-2">{{ footer.address.addressLine2 }}</span>
+              <span class="address-line-2">{{ footer.address.email }}</span>
+              <span class="address-line-2">{{ footer.address.phone }}</span>
+            </span>
+          </p>
+        </div>
+      </div>
+      {% endif %}
+      
+      <!-- Social Media -->
+      <div class="col-md-3">
+        <ul class="list-inline social-buttons">
+        {% if site.locale and site.data.sitetext[site.locale].footer.social %}
+        {% for link in site.data.sitetext[site.locale].footer.social %}
+          <li class="list-inline-item">
+            {% if link.url %}
+            <a href="{{ link.url }}">
+              {% if link.icon %}<i class="{{ link.icon }}"></i>{% endif %}
+            </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+        {% else %}
+          {% for link in site.data.sitetext.footer.social %}
+          <li class="list-inline-item">
+            {% if link.url %}
+            <a href="{{ link.url }}">
+              {% if link.icon %}<i class="{{ link.icon }}"></i>{% endif %}
+            </a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        {% endif %}
+        </ul>
+      </div>
+      
+      <!-- Legal -->
+      <div class="col-md-3">
+        <ul class="list-inline quicklinks">
+          <li class="list-inline-item">
+            <a href="legal">
+              {% if site.locale and site.data.sitetext[site.locale].footer.legal %}
+                {{ site.data.sitetext[site.locale].footer.legal }}
+              {% else %}
+                {{ site.data.sitetext.footer.legal }}
+              {% endif %}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</footer>
+<!-- End Footer -->

@@ -1,0 +1,47 @@
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+/* Estilos para la dirección en el footer */
+.address-footer {
+    font-size: 90%;
+    line-height: 20px;
+    text-transform: none;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-top: 10px;
+    text-align: left;
+}
+
+.address-text {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+.address-line {
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 2px;
+    text-align: left;
+}
+.address-line-2 {
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 2px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.fas.fa-map-marker-alt {
+    color: #fed136;
+    margin-right: 8px;
+    vertical-align: top;
+    font-size: 16px; /* Aumentamos el tamaño del icono */
+}
+
+@media (max-width: 768px) {
+    .address-footer {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
