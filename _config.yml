@@ -19,7 +19,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 
 title      : WantedForCode
 tagline    : Cloud, Data & AI Solutions for Business Growth
-email      : contact@wantedforcode.com # Ensure this email is configured and monitored, as contact forms will be sent here
+email      : contact@wantedforcode.com
 description: "WantedForCode helps startups and businesses grow with Cloud, Data and AI solutions, delivering high-quality software fast and securely."
 author     : WantedForCode
 logo:
