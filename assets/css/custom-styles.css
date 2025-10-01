@@ -1,3 +1,8 @@
+/* Hide the timeline section completely */
+#timeline, .timeline-section, section#timeline, section[id*="timeline"] {
+    display: none !important;
+}
+
 .pre-wrap {
     white-space: pre-wrap;
 }
