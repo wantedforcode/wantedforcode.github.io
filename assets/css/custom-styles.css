@@ -1,0 +1,1144 @@
+/*
+ * WantedForCode — Custom Brand Overrides
+ * Loaded after the base Bexon theme styles.
+ * All WantedForCode-specific colour, typography, and layout tweaks go here.
+ */
+
+/* ─── Brand Colour Tokens ──────────────────────────────────────────── */
+:root {
+  --wfc-primary:    #2AABE2;   /* cyan blue — main brand accent     */
+  --wfc-primary-dk: #1a8ab8;   /* darker cyan for hover states      */
+  --wfc-dark:       #131210;   /* near-black headings / backgrounds */
+  --wfc-mid:        #3E3633;   /* body text / corporate base        */
+  --wfc-light:      #DAD7D2;   /* section backgrounds / soft neutral*/
+  --wfc-white:      #ffffff;
+
+  /* ─── Theme token overrides (supersede main.css :root) ──────────── */
+  --tj-color-theme-primary:  #2AABE2;
+  --tj-color-theme-bg:       #DAD7D2;
+  --tj-color-theme-bg-2:     #DAD7D2;
+  --tj-color-theme-bg-3:     #221E1F;
+  --tj-color-theme-dark:     #131210;
+  --tj-color-theme-dark-2:   #221E1F;
+  --tj-color-theme-dark-3:   #3E3633;
+  --tj-color-theme-dark-4:   #6b6360;
+  --tj-color-theme-dark-5:   #6b6360;
+  --tj-color-heading-primary:#131210;
+  --tj-color-text-body:      #3E3633;
+  --tj-color-text-body-2:    #b5b2af;
+  --tj-color-text-body-3:    #6b6360;
+  --tj-color-text-body-4:    #221E1F;
+  --tj-color-grey-1:         #DAD7D2;
+  --tj-color-grey-2:         #b5b2af;
+  --tj-color-border-1:       #DAD7D2;
+  --tj-color-border-2:       #3E3633;
+  --tj-color-border-5:       rgba(42, 171, 226, 0.15);
+}
+
+/* ─── Logo Placeholder ─────────────────────────────────────────────── */
+.logo-placeholder {
+  font-family: 'Mona Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--wfc-primary);
+  letter-spacing: -0.02em;
+}
+
+/* ─── Section Heading Icon (replaces tji-box) ─────────────────────────── */
+/*
+ * Replaces the Bexon tji-box font icon in .sub-title elements.
+ * Uses CSS mask-image so the icon inherits the theme primary colour
+ * exactly as the font icon did, regardless of the PNG's original colour.
+ */
+.wfc-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: var(--tj-color-theme-primary);
+  -webkit-mask: url('../images/star.png') center / contain no-repeat;
+          mask: url('../images/star.png') center / contain no-repeat;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+/* ─── Marquee Star Icon (replaces tji-star) ────────────────────────────── */
+/*
+ * Replaces the Bexon tji-star font icon in the marquee section.
+ * Rotation animation remains on the parent .marquee-icon div — no changes
+ * needed to JS or animation CSS.
+ */
+.wfc-star {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: var(--tj-color-theme-primary);
+  -webkit-mask: url('../images/star.png') center / contain no-repeat;
+          mask: url('../images/star.png') center / contain no-repeat;
+  vertical-align: middle;
+}
+
+/* ─── Page Header Overlay — WFC brand gradient ──────────────────────────── */
+/*
+ * The .page-header-overlay sits at z-index: -1 inside a stacking context,
+ * and the parent uses background-blend-mode: luminosity which desaturates colour.
+ * Solution: hide the overlay element and use ::after on the header directly,
+ * so the gradient sits ABOVE the blended photo (z-index 1) and BELOW the
+ * text content (container at z-index 2).
+ */
+.page-header-overlay {
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+.tj-page-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 171, 226, 0.50) 0%,
+    rgba(19, 18, 16, 0.78) 50%,
+    rgba(42, 171, 226, 0.40) 100%
+  );
+}
+
+.tj-page-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── header-1 (about / inner pages) — white bar above banner ──────── */
+/*
+ * FIX 1: Switched from dark (#131210) to white to match the original
+ * Bexon template style. Logo changed to logo.webp (dark variant) in the
+ * template so it remains visible on the white background.
+ *
+ * CRITICAL: main.css sets `.header-area.header-1 .header-wrapper` to
+ * background-color: white already — we still set it explicitly here so
+ * both the outer header element and the inner wrapper are in sync.
+ */
+header.header-1 {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* Override main.css white header-wrapper background (explicit sync) */
+.header-area.header-1 .header-wrapper {
+  background-color: #ffffff;
+}
+
+/* Nav links — dark on white background */
+header.header-1 .mainmenu > ul > li > a {
+  color: var(--wfc-dark);
+}
+
+header.header-1 .mainmenu > ul > li > a:hover,
+header.header-1 .mainmenu > ul > li.current > a,
+header.header-1 .mainmenu > ul > li.active > a {
+  color: var(--wfc-primary);
+}
+
+/* Hamburger / offcanvas toggle lines — dark on white */
+header.header-1 .menu_bar span {
+  background-color: var(--wfc-dark);
+}
+
+/* Sticky header — stays white on scroll. */
+.header-area.header-1.sticky,
+.header-area.header-duplicate.sticky {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e8e8e8 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Sticky wrapper also white */
+.header-area.header-1.sticky .header-wrapper,
+.header-area.header-duplicate.sticky .header-wrapper {
+  background-color: #ffffff;
+}
+
+/* Sticky header nav links — dark */
+.header-area.header-1.sticky .mainmenu > ul > li > a,
+.header-area.header-duplicate.sticky .mainmenu > ul > li > a {
+  color: var(--wfc-dark);
+}
+.header-area.header-1.sticky .mainmenu > ul > li > a:hover,
+.header-area.header-duplicate.sticky .mainmenu > ul > li > a:hover,
+.header-area.header-1.sticky .mainmenu > ul > li.current > a,
+.header-area.header-duplicate.sticky .mainmenu > ul > li.current > a {
+  color: var(--wfc-primary);
+}
+
+/* Sticky hamburger lines — dark */
+.header-area.header-1.sticky .menu_bar span,
+.header-area.header-duplicate.sticky .menu_bar span {
+  background-color: var(--wfc-dark);
+}
+
+/* ─── Inner pages: push smooth-wrapper below header-1 ───────────────────
+ * On inner pages (about, services…) the header is static (header-1),
+ * not floating. #smooth-wrapper is position:fixed and starts at Y=0,
+ * which overlaps the 91px header. We push the wrapper content down by
+ * 97px (91px header + 6px gap) so the banner starts cleanly below.
+ * The header's z-index:99 paints it above the wrapper regardless.
+ *
+ * Also reduce the banner's own padding-top (theme default 133px was set
+ * for a floating/absolute header). With a static header we only need a
+ * modest inner top gap.
+ */
+header.header-1 ~ #smooth-wrapper {
+  padding-top: 111px;
+}
+
+.tj-page-header {
+  margin-top: 0;
+  padding-top: 50px;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Typography ────────────────────────────────────────────────────── */
+/* FIX 3: White body background so the 6px gap between the dark header
+ * and the dark banner shows as a clean white line rather than the beige
+ * #DAD7D2 that Bexon's main.css sets via --tj-color-theme-bg.
+ * All section backgrounds are explicit, so this change is safe globally. */
+body {
+  color: var(--wfc-mid);
+  background-color: #F7F7F7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--wfc-dark);
+}
+
+/* ─── Primary Button ────────────────────────────────────────────────── */
+.tj-primary-btn {
+  background-color: var(--wfc-primary);
+  border-color: var(--wfc-primary);
+}
+
+.tj-primary-btn:hover {
+  background-color: var(--wfc-primary-dk);
+  border-color: var(--wfc-primary-dk);
+}
+
+/* ─── Section Accent ────────────────────────────────────────────────── */
+.sub-title,
+.sec-title span {
+  color: var(--wfc-primary);
+}
+
+/* ─── Strategy Cards — equal height ────────────────────────────────── */
+.h5-strategy-item {
+  height: 100%;
+}
+
+/* ─── Client logos — object-fit + greyscale/hover effect ─── */
+.h5-client-item .client-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 24px;
+  filter: grayscale(100%) opacity(0.6);
+  transition: filter 0.35s ease;
+}
+
+/* Square logos (e.g. UST) would fill the full circular container.
+ * Extra padding reduces the visible content area while keeping element full-size. */
+.h5-client-item .client-logo.wfc-logo-small img {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 76px !important;
+}
+
+/* Hover D: full colour + lift. Override native Bexon circle shape. */
+.h5-client-item .client-logo:hover {
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.h5-client-item .client-logo:hover img {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* wfc-logo-dark: logos with a dark fill — invert to white for dark section bg */
+.wfc-logo-dark img {
+  filter: grayscale(100%) opacity(0.6) brightness(0) invert(1) !important;
+}
+.wfc-logo-dark:hover img,
+.h5-client-item .client-logo:hover .wfc-logo-dark img {
+  filter: brightness(0) invert(1) opacity(1) !important;
+}
+
+/* wfc-logo-dark-color: coloured logo on dark bg — invert to white, restore on hover */
+.wfc-logo-dark-color img {
+  filter: grayscale(100%) opacity(0.6) brightness(0) invert(1) !important;
+}
+.wfc-logo-dark-color:hover img,
+.h5-client-item .client-logo:hover .wfc-logo-dark-color img {
+  filter: grayscale(0%) opacity(1) !important;
+}
+
+/* Suppress Bexon's ::before background image on hover */
+.h5-client-item .client-logo:hover::before,
+.h5-client-item .client-logo:hover::after {
+  opacity: 0 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+ * "Trusted By" Logo Strip  —  wfc-trusted-section
+ * ─────────────────────────────────────────────────────────────────────────
+ *
+ * DESIGN RATIONALE
+ * ────────────────
+ * Mixed-aspect-ratio logos (square UST, wide Connectorfy/Smika/Aganova/
+ * Metagigs, text-SVG GEA) need a single normalisation axis. We use a
+ * fixed HEIGHT cell and let width float.  This is the only axis that
+ * produces visually equal-weight logos — all wordmarks read as the same
+ * "size" because their cap-heights share the same vertical space.
+ *
+ * CSS TECHNIQUE: "fixed-height cell + object-fit: contain"
+ * ─────────────────────────────────────────────────────────
+ *  • .wfc-logo-cell  — flex column: centers the <img> both axes, gives
+ *    each logo a consistent clickable/hover zone, and imposes a max-width
+ *    so very wide logos (e.g. a 6:1 wordmark) don't blow out the row.
+ *
+ *  • .wfc-logo-cell img — height is clamped to a design-token range;
+ *    width is 100% of the cell but object-fit: contain scales the bitmap
+ *    down to fit without ever cropping or distorting.  The browser NEVER
+ *    stretches an image with object-fit: contain — aspect ratio is always
+ *    preserved.
+ *
+ * SQUOOSH / EXPORT STRATEGY (see inline notes below)
+ * ─────────────────────────────────────────────────────
+ *  • SVG logos (GEA): keep as SVG, no rasterisation needed.
+ *  • Raster logos (PNG → WebP via Squoosh):
+ *      - Export at NATURAL aspect ratio (do NOT letterbox/pad in the file).
+ *      - Target height: 120 px  (= 2× the 60 px CSS max-height → retina-sharp).
+ *      - Let the width be whatever the logo's natural ratio dictates.
+ *      - Squoosh settings: WebP quality 85, "Reduce palette" off.
+ *  • Why NOT 200×70 letterboxed canvases?
+ *      Padding baked into the file creates invisible dead-zones that fight
+ *      object-fit: contain (the browser sees the padding as part of the
+ *      image and scales it in).  Natural-size files + CSS padding is far
+ *      more predictable and easier to adjust without re-exporting.
+ *
+ * GREYSCALE / HOVER
+ * ──────────────────
+ * Logos start at 0% saturation + 70% opacity (muted/unobtrusive).
+ * Hover restores full colour and full opacity with a smooth transition.
+ * This follows the industry-standard pattern used by Stripe, Linear,
+ * Vercel, etc. for their "trusted by" strips.
+ * ───────────────────────────────────────────────────────────────────────── */
+
+/* ── Section wrapper ───────────────────────────────────────────────────── */
+.wfc-trusted-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #f4f2f0;                    /* light off-white / soft beige — matches ~70% light philosophy */
+  border-top:    1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* ── Section heading ───────────────────────────────────────────────────── */
+.wfc-trusted-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(62, 54, 51, 0.55);               /* muted dark text on light bg */
+  margin-bottom: 32px;
+}
+
+/* ── Flex row that holds all logo cells ───────────────────────────────── */
+.wfc-logo-row {
+  display: flex;
+  flex-wrap: wrap;               /* gracefully drops to 2-col on very small screens */
+  align-items: center;           /* vertical midline shared by all logos   */
+  justify-content: center;       /* centred when there are fewer than 6    */
+  gap: 16px 32px;                /* row-gap col-gap                        */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Individual logo cell ─────────────────────────────────────────────── */
+/*
+ * No white card on dark background — logos float directly on the section.
+ * filter: brightness(0) invert(1) forces any logo (dark, coloured, or with
+ * a baked-in white bg) into a clean white silhouette, solving both the
+ * "dark logo invisible on dark bg" and "white bg inside card" problems.
+ */
+.wfc-logo-cell {
+  flex: 1 1 120px;
+  max-width: 180px;
+  min-width: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 64px;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: none;
+
+  list-style: none;
+}
+
+/* ── The logo image ───────────────────────────────────────────────────── */
+/*
+ * Light background context: logos are rendered as desaturated/grey by
+ * default (grayscale + reduced opacity = unobtrusive supporting element).
+ * Hover restores full colour — the standard "trusted by" strip pattern
+ * used by Stripe, Linear, Vercel, etc.
+ * No brightness(0) invert(1) needed — logos are dark/coloured originals
+ * that are naturally visible on a light background.
+ */
+.wfc-logo-cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 48px;
+  object-fit: contain;
+  object-position: center;
+
+  filter: grayscale(100%) opacity(0.5);
+  transition:
+    filter      0.3s ease,
+    transform   0.25s ease;
+}
+
+/* Hover → full colour + full opacity, subtle lift */
+.wfc-logo-cell:hover img,
+.wfc-logo-cell:focus-within img {
+  filter: grayscale(0%) opacity(1);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive overrides ─────────────────────────────────────────────── */
+
+/* Tablet: slightly smaller cells to fit 6 across without overflow */
+@media (max-width: 991px) {
+  .wfc-logo-cell {
+    flex: 1 1 100px;
+    max-width: 160px;
+    height: 56px;
+  }
+  .wfc-logo-cell img {
+    max-height: 40px;
+  }
+}
+
+/* Large phone: allow 3 per row comfortably */
+@media (max-width: 767px) {
+  .wfc-trusted-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .wfc-logo-row {
+    gap: 20px 24px;
+    justify-content: center;
+  }
+  .wfc-logo-cell {
+    flex: 0 1 calc(33.333% - 24px);  /* hard 3-column grid on phone */
+    max-width: 140px;
+    height: 52px;
+  }
+  .wfc-logo-cell img {
+    max-height: 36px;
+  }
+}
+
+/* Small phone: 2 per row */
+@media (max-width: 479px) {
+  .wfc-logo-cell {
+    flex: 0 1 calc(50% - 16px);
+    max-width: none;
+    height: 48px;
+  }
+  .wfc-logo-cell img {
+    max-height: 32px;
+  }
+}
+
+/* ─── About Page — Choose Section ──────────────────────────────────── */
+/*
+ * WHITE background — differentiates from tj-about-section-2 (#DAD7D2 beige)
+ * which follows it. Without this, both sections inherit the body bg and look
+ * identical. Only team (tj-team-section-3) and CTA (tj-cta-section) are dark.
+ */
+.tj-choose-section {
+  background-color: #ffffff;
+}
+
+/* FIX 1: sec-heading-wrap flex layout — sub-title stacked above
+ * heading-wrap-content which uses space-between so the title sits left
+ * and the CTA button sits right, both at the bottom of the heading row.
+ * The button visually aligns with the card row below.
+ *
+ * align-items: flex-end on a column-flex container right-aligns children
+ * by default, so we give heading-wrap-content width: 100% to fill the
+ * row, and override sub-title back to flex-start so it stays left. */
+.tj-choose-section .sec-heading-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+/* Keep sub-title left-aligned even when parent is align-items: flex-end */
+.tj-choose-section .sec-heading-wrap > .sub-title {
+  align-self: flex-start;
+}
+
+.tj-choose-section .heading-wrap-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%; /* prevent collapse under parent align-items: flex-end */
+}
+
+/* Ensure btn-wrap has no extra top margin that would push it away from cards */
+.tj-choose-section .btn-wrap {
+  margin-top: 0;
+}
+
+@media (max-width: 575px) {
+  .tj-choose-section .heading-wrap-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Section heading on LIGHT background — standard dark text */
+.tj-choose-section .sec-title {
+  color: var(--wfc-dark);
+}
+.tj-choose-section .sec-title span {
+  color: var(--wfc-primary);
+}
+/* .sub-title color inherits from global rule → var(--wfc-primary) */
+
+.tj-choose-section .choose-box {
+  background: var(--wfc-white);
+  border-radius: 10px;
+  padding: 50px 28px 45px;   /* matches Bexon template exactly */
+  height: 100%;
+  /* shadow lifts white card off white section bg — strengthened for visibility */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tj-choose-section .choose-box:hover {
+  background-color: var(--wfc-primary);
+  box-shadow: 0 8px 28px rgba(42, 171, 226, 0.35);
+  transform: translateY(-4px);
+}
+.tj-choose-section .choose-box:hover .title {
+  color: #ffffff;
+}
+.tj-choose-section .choose-box:hover .desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+.tj-choose-section .choose-box:hover .choose-icon {
+  color: #ffffff;
+  /* gelatine animation restores original bounce — base CSS defines @keyframes gelatine */
+}
+
+.tj-choose-section .choose-icon {
+  font-size: 88px;
+  color: var(--wfc-primary);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+/* ─── About Page — Team Section ─────────────────────────────────────── */
+/* FIX 5: Switched from dark (#131210) to light cyan (#EAF6FD) background.
+ * Text colour overrides updated: headings/names now use dark colour since
+ * they are on a light background (no longer need white-on-dark treatment). */
+.tj-team-section-3 {
+  background-color: #EAF6FD;
+}
+
+/*
+ * Section title on light cyan background — standard dark heading colour.
+ * (Previously #ffffff to be visible on the dark bg; now dark on light bg.)
+ */
+.tj-team-section-3 .sec-heading .sec-title {
+  color: var(--wfc-dark);
+}
+
+/* Team member name is an h4 (.title) — dark on light bg */
+.tj-team-section-3 .team-item .title {
+  color: var(--wfc-dark);
+}
+/* If name is wrapped in an <a>, keep dark; cyan on hover */
+.tj-team-section-3 .team-item .title a {
+  color: inherit;
+}
+.tj-team-section-3 .team-item .title a:hover {
+  color: var(--wfc-primary);
+}
+
+.tj-team-section-3 .team-item .team-content .designation {
+  color: var(--wfc-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ─── About Page — FAQ Accordion accent ─────────────────────────────── */
+/*
+ * Active accordion title: cyan text + visible separator.
+ * Main.css sets border-bottom: 1px dashed var(--tj-color-border-1) = #DAD7D2
+ * (body beige) which is invisible on the beige body background.
+ * We override both the text colour and the separator colour.
+ */
+.tj-faq .accordion-item.active .faq-title,
+.tj-faq .accordion-item .faq-title[aria-expanded="true"] {
+  color: var(--wfc-primary);
+  border-bottom-color: rgba(42, 171, 226, 0.30);
+}
+
+/* ─── About Page — CTA Section ──────────────────────────────────────── */
+.tj-cta-section .cta-area {
+  background: var(--wfc-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ─── Placeholder notice (remove before launch) ────────────────────── */
+.wfc-placeholder {
+  outline: 2px dashed var(--wfc-primary);
+  outline-offset: 4px;
+  position: relative;
+}
+
+.wfc-placeholder::after {
+  content: attr(data-placeholder);
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: var(--wfc-primary);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Tech Stack Tags (Work page) ──────────────────────────────────── */
+.tech-stack {
+  margin-top: 0.5rem;
+  color: var(--wfc-mid);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Sector Line (Work page intro) ────────────────────────────────── */
+.sector-line {
+  font-size: 0.95rem;
+  color: var(--wfc-mid);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ─── Blog Pre-launch State ─────────────────────────────────────────── */
+.blog-prelaunched {
+  background: var(--wfc-light);
+  border-left: 3px solid var(--wfc-primary);
+  padding: 2.5rem 2rem;
+  border-radius: 4px;
+}
+.blog-prelaunched h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--wfc-dark);
+}
+.blog-prelaunched .topics-intro {
+  font-size: 0.9rem;
+  color: var(--wfc-mid);
+  margin-bottom: 0.75rem;
+}
+.blog-prelaunched .topic-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+.blog-prelaunched .topic-list li {
+  padding: 0.35rem 0;
+  font-size: 0.95rem;
+  color: var(--wfc-dark);
+}
+.blog-prelaunched .topic-list li i {
+  color: var(--wfc-primary);
+  margin-right: 0.5rem;
+}
+.blog-prelaunched .no-filler-note {
+  font-size: 0.85rem;
+  color: var(--wfc-mid);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+/* ─── Contact Form Notes ────────────────────────────────────────────── */
+.response-note {
+  font-size: 0.85rem;
+  color: var(--wfc-mid);
+  margin-bottom: 0.5rem;
+}
+.privacy-note {
+  font-size: 0.8rem;
+  color: var(--wfc-mid);
+  margin-bottom: 1rem;
+}
+.privacy-note a {
+  color: var(--wfc-primary);
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+ * VISUAL QA FIXES — applied after final audit pass
+ * ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── FIX 1 · Story Section — 4:3 image aspect ratio ───────────────────
+ *
+ * WHY: strategy-avatar.webp is 800×600 (4:3 landscape). The base Bexon
+ * theme sets `.about-img { height: 100% }` on the image container, which
+ * causes Bootstrap's flex row to stretch it to the adjacent (taller) text
+ * column height, making `object-fit: cover` crop the image vertically.
+ *
+ * FIX: Override height to `auto` and lock `aspect-ratio: 4/3` so the
+ * container always maintains the image's native proportion regardless of
+ * the sibling column height.  `object-fit: cover` then fills the locked
+ * 4:3 box perfectly with zero distortion or cropping (image IS 4:3).
+ *
+ * The `.about-img-area` parent also needs `height: auto` so the absolutely-
+ * positioned `.box-area.style-2` progress-card anchors to the real image
+ * bottom, not the stretched phantom column height.
+ * ─────────────────────────────────────────────────────────────────────── */
+
+/* FIX 4: Our Story section — very light cyan tint background to visually
+ * differentiate it from adjacent white/beige sections. ~6% opacity of the
+ * brand primary #2AABE2. */
+.tj-about-section-2 {
+  background-color: #EAF6FD;
+}
+
+/* FIX 5: Constrain heading max-width to 480px so the rewritten headline
+ * "Senior Engineers Building Software That Ships, / Scales, and Stays in
+ * Production." wraps naturally into ~4 lines at desktop without forcing an
+ * unnaturally narrow 320px column. */
+/* No max-width constraint — heading uses full column width, matching template behaviour */
+
+.tj-about-section-2 .about-img-area {
+  height: auto;
+}
+
+.tj-about-section-2 .about-img-area .about-img {
+  height: auto;        /* override base `height: 100%` */
+  overflow: hidden;    /* keep the border-radius clip */
+}
+
+.tj-about-section-2 .about-img-area .about-img img {
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+  object-fit: cover;   /* fills the tall box — no crop axis, natural proportions */
+}
+
+/* Mobile: full width, natural height */
+@media (max-width: 991px) {
+  .tj-about-section-2 .about-img-area {
+    max-width: 100%;
+  }
+}
+
+/* ─── FIX 2 · Testimonial Section — 4:3 image aspect ratio ─────────────
+ *
+ * WHY: strategy-chart.webp is 800×600 (4:3 landscape).  The base rule
+ * `.testimonial-img-area .testimonial-img { height: 100% }` combined with
+ * `object-fit: cover` and `overflow: hidden` clips the landscape image
+ * when the slider column stretches taller than the image's native ratio.
+ *
+ * FIX: Lock `aspect-ratio: 4/3` and set `height: auto` on the container.
+ * The `.rating-box` overlay (position: absolute on `.testimonial-img-area`)
+ * still anchors to bottom-right of the image area correctly.
+ *
+ * On mobile breakpoints (≤767px) the base theme already removes
+ * `object-fit` — we preserve that behaviour.
+ * ─────────────────────────────────────────────────────────────────────── */
+.tj-testimonial-section-2 .testimonial-img-area .testimonial-img {
+  aspect-ratio: 4 / 3;
+  height: auto;        /* override base `height: 100%` */
+}
+
+.tj-testimonial-section-2 .testimonial-img-area .testimonial-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills locked 4:3 box */
+}
+
+/* Mobile: restore natural sizing (matches base theme override) */
+@media (max-width: 767px) {
+  .tj-testimonial-section-2 .testimonial-img-area .testimonial-img {
+    aspect-ratio: auto;
+    height: auto;
+  }
+  .tj-testimonial-section-2 .testimonial-img-area .testimonial-img img {
+    object-fit: unset;
+    height: auto;
+  }
+}
+
+/* ─── FIX 3 · Choose Box Icons — colour stability across states ─────────
+ *
+ * WHY: The base `.choose-box:hover .choose-icon` forces `color: white`
+ * which is correct on the dark hover bg — we restore that here.
+ * Base font-size 88px is preserved (removed earlier 2rem override).
+ * The base `gelatine` animation on hover is intentionally left active.
+ * ─────────────────────────────────────────────────────────────────────── */
+.tj-choose-section .choose-box .choose-icon {
+  line-height: 1;
+  max-width: none;
+  color: var(--wfc-primary);    /* cyan at rest */
+  margin-bottom: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tj-choose-section .choose-box .choose-icon i {
+  font-size: inherit;
+  color: inherit;
+  line-height: 1;
+}
+
+/* Hover: icon turns white on the dark card bg — matches original template */
+.tj-choose-section .choose-box:hover .choose-icon,
+.tj-choose-section .choose-box:hover .choose-icon i {
+  color: #ffffff;
+}
+
+/* ─── FIX 4 · Progress Bar — ensure track + bar colours are on-brand ────
+ *
+ * WHY: `.tj-progress` background uses `var(--tj-color-theme-bg)` = beige
+ * (#DAD7D2). Inside the semi-transparent white glassmorphism overlay card
+ * `.progress-box`, the beige track blends into the card and is nearly
+ * invisible. A subtly lighter track makes the fill bar more readable.
+ *
+ * The `.progress-box` that overlays the story image needs white text for
+ * legibility; main.css already sets this for `.box-area.style-2` but we
+ * reinforce for the `.tj-progress-title` and `.tj-progress-percent` spans.
+ * ─────────────────────────────────────────────────────────────────────── */
+
+/* Track: slightly transparent white so it's visible on glass card */
+.tj-about-section-2 .box-area.style-2 .tj-progress {
+  background: rgba(255, 255, 255, 0.30);
+}
+
+/* Fill bar: brand cyan */
+.tj-about-section-2 .box-area.style-2 .tj-progress-bar {
+  background: var(--wfc-primary);
+}
+
+/* Label text: white on glass overlay */
+.tj-about-section-2 .box-area.style-2 .tj-progress-title,
+.tj-about-section-2 .box-area.style-2 .tj-progress-percent {
+  color: #ffffff;
+}
+
+/* ─── FIX 5 · Testimonial Slider — client avatar circle guarantee ───────
+ *
+ * WHY: client-1/2.webp are 89×89 small placeholders. The base CSS sets
+ * `border-radius: 50%` on `.testimonial-author .author-img` which makes
+ * circles, but the `.testimonial-slider-2` override only sets width/height
+ * (80×80) without repeating border-radius. Explicitly set `border-radius`
+ * and `overflow: hidden` to ensure circle even at small sizes.
+ * ─────────────────────────────────────────────────────────────────────── */
+.tj-testimonial-section-2 .testimonial-author .author-img {
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;   /* prevent avatar from squishing in flex row */
+}
+
+.tj-testimonial-section-2 .testimonial-author .author-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ─── FIX 6 · FAQ Section — active state + aria-expanded cyan ───────────
+ *
+ * WHY: Bootstrap manages `aria-expanded` on the button; the Bexon theme JS
+ * manages the `.active` class on the `.accordion-item`.  We need BOTH
+ * selectors covered.  The existing rule in custom-styles.css covers them
+ * but the `border-bottom-color` change requires `!important` to override
+ * the base `border-bottom: 1px dashed var(--tj-color-border-1)` which
+ * has higher specificity in some nested contexts.
+ * ─────────────────────────────────────────────────────────────────────── */
+.tj-faq .accordion-item.active .faq-title,
+.tj-faq .accordion-item .faq-title[aria-expanded="true"] {
+  color: var(--wfc-primary) !important;
+  border-bottom-color: rgba(42, 171, 226, 0.30) !important;
+}
+
+/* Chevron / plus icon on active item — use cyan */
+.tj-faq .accordion-item.active .faq-title::after,
+.tj-faq .accordion-item .faq-title[aria-expanded="true"]::after {
+  color: var(--wfc-primary);
+}
+
+/* ─── FIX 7 · Mobile responsiveness at 375px ────────────────────────────
+ *
+ * Verified correct Bootstrap column stacking via col-lg-4 (choose boxes),
+ * col-xl-6/col-lg-6 with order-lg/order-* (story), col-lg-4 col-sm-6
+ * (team). These stack automatically. Additional fixes below address:
+ *
+ * a) Choose boxes: ensure full-width at 375px with no horizontal overflow
+ * b) Story section: image container width should be 100% when stacked
+ * c) FAQ section: left column should not have fixed min-height on mobile
+ * ─────────────────────────────────────────────────────────────────────── */
+@media (max-width: 575px) {
+  /* Choose boxes: full-width stack, comfortable padding */
+  .tj-choose-section .choose-box {
+    padding: 28px 20px;
+  }
+
+  /* Story section: image fills full width when stacked */
+  .tj-about-section-2 .about-img-area {
+    width: 100%;
+  }
+
+  /* Testimonial image: let it breathe on small screens */
+  .tj-testimonial-section-2 .testimonial-img-area .testimonial-img {
+    border-radius: 10px;
+  }
+
+  /* FAQ: remove any potential overflow on small accordion items */
+  .tj-faq .accordion-item .faq-title {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
+
+/* ─── FIX 6 · About page client section — natural logo colours ──────────
+ *
+ * The new tj-client-section Swiper carousel (replacing wfc-trusted-section)
+ * sits on the base Bexon theme's client-section background (light/white).
+ * Logos should display in their original dark/coloured form — no greyscale.
+ * The h5-client-item grayscale rule above is scoped to the home page only.
+ * ─────────────────────────────────────────────────────────────────────── */
+
+/* FIX 6: Ensure the client-logo container is a centred flex cell so that
+ * SVG logos without explicit width/height (like logo-ust.svg which has
+ * only a viewBox) can expand to fill the 160px max-width correctly. */
+.tj-client-section .client-item .client-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.tj-client-section .client-item .client-logo img {
+  filter: brightness(0) !important;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.25s ease;
+  max-width: 160px;
+  max-height: 60px;      /* FIX 4: caps square logos (UST 50×50 viewBox) at 60px tall */
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;   /* FIX 4: preserves aspect ratio within the max-height cap */
+}
+
+.tj-client-section .client-item .client-logo:hover img {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ─── About Page — Footer Section ──────────────────────────────────── */
+/*
+ * FIX 6: Switch footer background (about page only) from dark to light cyan
+ * (#EAF6FD), matching the team section immediately above it.
+ *
+ * Scoped with `header.header-1 ~ #smooth-wrapper` so it ONLY applies on
+ * pages that use the static white header (about/nosotros). The home page
+ * uses header-2/header-5/header-absolute, so its footer is unaffected.
+ */
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 {
+  background-color: #EAF6FD;
+}
+
+/* Copyright strip — same light cyan, subtle top separator */
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .tj-copyright-area-2 {
+  background-color: #EAF6FD;
+  border-top: 1px solid rgba(42, 171, 226, 0.15);
+}
+
+/* Text + link colours on light cyan background */
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .footer-widget p,
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .footer-contact-info .contact-item,
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .footer-contact-info .contact-item a,
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .copyright-text p,
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .title {
+  color: var(--wfc-dark);
+}
+
+/* Social icon links and legal menu links — dark by default, cyan on hover */
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .social-links a,
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .copyright-menu a {
+  color: var(--wfc-dark);
+}
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .social-links a:hover,
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .copyright-menu a:hover {
+  color: var(--wfc-primary);
+}
+
+/* Contact link (email) in footer — cyan accent, consistent with brand */
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .footer-contact-info .contact-item a {
+  color: var(--wfc-primary);
+}
+header.header-1 ~ #smooth-wrapper .tj-footer-section.footer-2 .footer-contact-info .contact-item a:hover {
+  color: var(--wfc-primary-dk);
+}
+
+/* ─── Contact Section — Text Visibility ────────────────────────────────── */
+.tj-contact-section .sec-heading .sub-title {
+  color: var(--wfc-white);
+}
+.tj-contact-section .contact-info-list .contact-info-item span:not(.contact-info-icon) {
+  color: var(--wfc-white);
+}
+.tj-contact-section .contact-info-list .contact-info-item a {
+  color: var(--wfc-primary);
+}
+.tj-contact-section .contact-info-list .contact-info-item a:hover {
+  color: var(--wfc-primary-dk);
+}
+.tj-contact-section .contact-info-list .contact-info-item .contact-info-icon {
+  color: var(--wfc-primary);
+}
+
+/* -------------------------------------------------------------------------
+   Language Switcher — pill badge positioned in header-right-item
+   ------------------------------------------------------------------------- */
+
+/* Base pill — shared across all header contexts */
+.lang-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid currentColor;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.lang-switcher-btn:focus,
+.lang-switcher-btn:focus-visible {
+  outline: 2px solid var(--wfc-primary);
+  outline-offset: 2px;
+}
+
+/* Dark header (header-2 / header-5 / header-absolute): white pill on dark bg */
+.header-2.header-absolute .lang-switcher-btn,
+.header-5.header-absolute .lang-switcher-btn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.header-2.header-absolute .lang-switcher-btn:hover,
+.header-5.header-absolute .lang-switcher-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* White / inner-page header (header-1): primary-bordered dark pill */
+header.header-1 .lang-switcher-btn {
+  color: var(--wfc-dark);
+  border-color: var(--wfc-primary);
+}
+header.header-1 .lang-switcher-btn:hover {
+  background: var(--wfc-dark);
+  border-color: var(--wfc-dark);
+  color: #ffffff;
+}
+
+/* Sticky header (header-duplicate) after scroll — always white background */
+.header-area.header-duplicate.sticky .lang-switcher-btn {
+  color: var(--wfc-dark);
+  border-color: var(--wfc-primary);
+}
+.header-area.header-duplicate.sticky .lang-switcher-btn:hover {
+  background: var(--wfc-dark);
+  border-color: var(--wfc-dark);
+  color: #ffffff;
+}
+
+/* Mobile: the pill sits inside the d-lg-none flex wrapper next to the burger */
+.header-mobile-actions .lang-switcher-btn {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+}
+/* Dark-bg mobile header (header-2/5): white pill */
+.header-2 .header-mobile-actions .lang-switcher-btn,
+.header-5 .header-mobile-actions .lang-switcher-btn {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.header-2 .header-mobile-actions .lang-switcher-btn:hover,
+.header-5 .header-mobile-actions .lang-switcher-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+/* White-bg mobile header (header-1): dark pill */
+.header-1 .header-mobile-actions .lang-switcher-btn {
+  color: var(--wfc-dark);
+  border-color: var(--wfc-primary);
+}
+.header-1 .header-mobile-actions .lang-switcher-btn:hover {
+  background: var(--wfc-dark);
+  border-color: var(--wfc-dark);
+  color: #ffffff;
+}
+
+
+/* ─── Contact Form Feedback ────────────────────────────────────────── */
+.contact-form-msg {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.contact-form-msg.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.contact-form-msg.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}

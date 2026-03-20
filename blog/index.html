@@ -1,0 +1,403 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Blog — WantedForCode</title>
+  <meta name="description" content="Articles on software architecture, direct engineering collaboration, and technical leadership. Practical perspectives from engineers in the field.">
+  <meta name="google-site-verification" content="Ahe8VURvXtE4nHhiedsFcTXqXyuDiMi53C-ITj_cJHg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wantedforcode.com/blog/">
+  <link rel="alternate" hreflang="en" href="https://wantedforcode.com/blog/">
+  <link rel="alternate" hreflang="es" href="https://wantedforcode.com/es/blog/">
+  <link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/blog/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wantedforcode.com/blog/">
+  <meta property="og:title" content="Engineering Blog — WantedForCode">
+  <meta property="og:description" content="Articles on software architecture, direct engineering collaboration, and technical leadership. Practical perspectives from engineers in the field.">
+  <meta property="og:image" content="https://wantedforcode.com/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="WantedForCode">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Engineering Blog — WantedForCode">
+  <meta name="twitter:description" content="Articles on software architecture, direct engineering collaboration, and technical leadership. Practical perspectives from engineers in the field.">
+  <meta name="twitter:image" content="https://wantedforcode.com/assets/images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/wantedforcode-favicon.png">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/font-awesome-pro.min.css">
+  <link rel="stylesheet" href="/assets/css/animate.min.css">
+  <link rel="stylesheet" href="/assets/css/bexon-icons.css">
+  <link rel="stylesheet" href="/assets/css/nice-select.css">
+  <link rel="stylesheet" href="/assets/css/swiper.min.css">
+  <link rel="stylesheet" href="/assets/css/venobox.min.css">
+  <link rel="stylesheet" href="/assets/css/odometer-theme-default.css">
+  <link rel="stylesheet" href="/assets/css/meanmenu.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/custom-styles.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://wantedforcode.com/blog/#webpage",
+        "url": "https://wantedforcode.com/blog/",
+        "name": "Engineering Blog — WantedForCode",
+        "description": "Articles on software architecture, direct engineering collaboration, and technical leadership. Practical perspectives from engineers in the field.",
+        "isPartOf": { "@id": "https://wantedforcode.com/#website" },
+        "publisher": { "@id": "https://wantedforcode.com/#organization" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wantedforcode.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://wantedforcode.com/blog/" }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="aec22bf1-4264-46ef-bb87-4d3f051dd84b" data-domains="wantedforcode.com"></script>
+</head>
+
+<body>
+  <div class="body-overlay"></div>
+
+  <!-- Preloader Start -->
+  <div class="tj-preloader is-loading">
+    <div class="tj-preloader-inner">
+      <div class="tj-preloader-ball-wrap">
+        <div class="tj-preloader-ball-inner-wrap">
+          <div class="tj-preloader-ball-inner">
+            <div class="tj-preloader-ball"></div>
+          </div>
+          <div class="tj-preloader-ball-shadow"></div>
+        </div>
+        <div id="tj-weave-anim" class="tj-preloader-text">Loading...</div>
+      </div>
+    </div>
+    <div class="tj-preloader-overlay"></div>
+  </div>
+  <!-- Preloader end -->
+
+  <!-- back to top start -->
+  <div id="tj-back-to-top"><span id="tj-back-to-top-percentage"></span></div>
+  <!-- back to top end -->
+
+  <!-- start: Offcanvas Menu -->
+  <div class="tj-offcanvas-area d-none d-lg-block">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="/" class="mobile_logo">
+              <img src="/assets/images/logos/wantedforcode-logo-white.webp" alt="WantedForCode">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn"><i class="fa-thin fa-times"></i></button>
+          </div>
+        </div>
+        <div class="hamburger-infos">
+          <h5 class="hamburger-title">Contact Info</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="subtitle">Email</span>
+              <a class="contact-link" href="mailto:contact@wantedforcode.com">contact@wantedforcode.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="subtitle">Location</span>
+              <span class="contact-link">Calle San Miguel 3, Portal 9, 2B<br>29640 Fuengirola, Málaga<br>Spain</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger-socials">
+        <h5 class="hamburger-title">Follow Us</h5>
+        <div class="social-links style-3">
+          <ul>
+            <li><a href="https://www.linkedin.com/company/wantedforcode" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            <li><a href="https://github.com/wantedforcode" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Offcanvas Menu -->
+
+  <!-- start: Hamburger Menu -->
+  <div class="hamburger-area d-lg-none">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="/" class="mobile_logo">
+              <img src="/assets/images/logos/wantedforcode-logo-white.webp" alt="WantedForCode">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn"><i class="fa-thin fa-times"></i></button>
+          </div>
+        </div>
+        <div class="hamburger_menu">
+          <div class="mobile_menu"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Hamburger Menu -->
+
+  <!-- start: Header Area -->
+  <header class="header-area header-2 header-5 header-absolute section-gap-x">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-wrapper">
+            <div class="site_logo">
+              <a class="logo" href="/"><img src="/assets/images/logos/wantedforcode-logo-white.webp" alt="WantedForCode"></a>
+            </div>
+            <div class="menu-area d-none d-lg-inline-flex align-items-center">
+              <nav id="mobile-menu" class="mainmenu">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about/">About</a></li>
+                  <li><a href="/services/">Services</a></li>
+                  <li><a href="/work/">Work</a></li>
+                  <li hidden><a href="/blog/">Blog</a></li>
+                  <li><a href="/contact/">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="header-right-item d-none d-lg-inline-flex">
+              <a class="lang-switcher-btn" href="/es/blog/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar menu_offcanvas d-none d-lg-inline-flex">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="header-mobile-actions d-flex align-items-center gap-2 d-lg-none">
+              <a class="lang-switcher-btn" href="/es/blog/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar mobile_menu_bar">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- start: Header sticky -->
+  <header class="header-area header-2 header-duplicate header-sticky section-gap-x">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-wrapper">
+            <div class="site_logo">
+              <a class="logo" href="/"><img src="/assets/images/logos/wantedforcode-logo.webp" alt="WantedForCode"></a>
+            </div>
+            <div class="menu-area d-none d-lg-inline-flex align-items-center">
+              <nav class="mainmenu">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about/">About</a></li>
+                  <li><a href="/services/">Services</a></li>
+                  <li><a href="/work/">Work</a></li>
+                  <li hidden><a href="/blog/">Blog</a></li>
+                  <li><a href="/contact/">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="header-right-item d-none d-lg-inline-flex">
+              <a class="lang-switcher-btn" href="/es/blog/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar menu_offcanvas d-none d-lg-inline-flex">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="header-mobile-actions d-flex align-items-center gap-2 d-lg-none">
+              <a class="lang-switcher-btn" href="/es/blog/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar mobile_menu_bar">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end: Header Area -->
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main>
+
+        <!-- start: Page Header -->
+        <section class="tj-page-header section-gap-x" data-bg-image="/assets/images/bg/pheader-bg.webp">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="tj-page-header-content text-center">
+                  <h1 class="tj-page-title">From the Engineers</h1>
+                  <div class="tj-page-link">
+                    <span><i class="tji-home"></i></span>
+                    <span><a href="/">Home</a></span>
+                    <span><i class="tji-arrow-right"></i></span>
+                    <span>Blog</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-header-overlay" data-bg-image="/assets/images/shape/pheader-overlay.webp"></div>
+        </section>
+        <!-- end: Page Header -->
+
+        <!-- start: Blog Content -->
+        <section class="blog-section section-gap">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto text-center wow fadeInUp">
+                <h2 class="section-title">How We Think. How We Build.</h2>
+                <p class="section-intro">We write about how we think and how we work. Practical perspectives from engineers who build production systems — not marketing content.</p>
+              </div>
+            </div>
+            <div class="row mt-60 justify-content-center">
+              <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s">
+                <div class="blog-prelaunched">
+                  <h3>Writing in progress.</h3>
+                  <p class="topics-intro">Topics we're covering first:</p>
+                  <ul class="topic-list">
+                    <li><i class="fa-regular fa-arrow-right"></i> Why direct engineer access reduces project risk</li>
+                    <li><i class="fa-regular fa-arrow-right"></i> Architecture-first: designing before we write a line of code</li>
+                    <li><i class="fa-regular fa-arrow-right"></i> What senior actually means — the standard we hold ourselves to</li>
+                  </ul>
+                  <p class="no-filler-note">No filler. We publish when it's worth reading.</p>
+                  <a href="/contact/" class="tj-primary-btn mt-20">Let us know you're interested <i class="fa-regular fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: Blog Content -->
+
+        <!-- start: CTA -->
+        <section class="cta-section section-gap bg-light-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 text-center wow fadeInUp">
+                <h3 class="cta-headline">Got a Project in Mind?</h3>
+                <a href="/contact/" class="tj-primary-btn mt-20">Talk to an Engineer <i class="fa-regular fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: CTA -->
+
+      </main>
+
+      <!-- start: Footer Section -->
+      <footer class="tj-footer-section footer-2 h5-footer section-gap-x">
+        <div class="footer-main-area">
+          <div class="container">
+            <div class="row justify-content-between">
+              <div class="col-xl-4 col-md-6">
+                <div class="footer-widget footer-col-1 wow fadeInUp" data-wow-delay=".1s">
+                  <div class="footer-logo">
+                    <a href="/">
+                      <img src="/assets/images/logos/wantedforcode-logo-white.webp" alt="WantedForCode">
+                    </a>
+                  </div>
+                  <div class="footer-text">
+                    <p>Senior engineers working directly with your team. No account managers, no layers in between.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                <div class="footer-widget widget-contact wow fadeInUp" data-wow-delay=".3s">
+                  <h5 class="title">Let's Talk</h5>
+                  <div class="footer-contact-info">
+                    <div class="contact-item">
+                      <span>Calle San Miguel 3, Portal 9, 2B<br>29640 Fuengirola, Málaga<br>Spain</span>
+                    </div>
+                    <div class="contact-item">
+                      <a href="mailto:contact@wantedforcode.com">contact@wantedforcode.com</a>
+                    </div>
+                    <div class="contact-item">
+                      <span><i class="tji-clock"></i> Mon–Fri, 9am–6pm CET</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tj-copyright-area-2 h5-footer-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="copyright-content-area">
+                  <div class="copyright-text">
+                    <p>© 2026 WantedForCode. All rights reserved.</p>
+                  </div>
+                  <div class="social-links style-3">
+                    <ul>
+                      <li><a href="https://www.linkedin.com/company/wantedforcode" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                      <li><a href="https://github.com/wantedforcode" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                    </ul>
+                  </div>
+                  <div class="copyright-menu">
+                    <ul>
+                      <li><a href="/legal/">Legal Notice & Privacy Policy</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-shape-1">
+          <img src="/assets/images/shape/pattern-2.svg" alt="">
+        </div>
+        <div class="bg-shape-2">
+          <img src="/assets/images/shape/pattern-3.svg" alt="">
+        </div>
+      </footer>
+      <!-- end: Footer Section -->
+    </div>
+  </div>
+
+  <!-- JS here -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/validate.min.js"></script>
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/gsap.min.js"></script>
+  <script src="/assets/js/ScrollSmoother.js"></script>
+  <script src="/assets/js/gsap-scroll-to-plugin.min.js"></script>
+  <script src="/assets/js/gsap-scroll-trigger.min.js"></script>
+  <script src="/assets/js/gsap-split-text.min.js"></script>
+  <script src="/assets/js/jquery.nice-select.min.js"></script>
+  <script src="/assets/js/swiper.min.js"></script>
+  <script src="/assets/js/odometer.min.js"></script>
+  <script src="/assets/js/venobox.min.js"></script>
+  <script src="/assets/js/appear.min.js"></script>
+  <script src="/assets/js/wow.min.js"></script>
+  <script src="/assets/js/meanmenu.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
