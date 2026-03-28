@@ -1,0 +1,43 @@
+# WantedForCode
+
+WantedForCode is a senior software engineering consultancy based in Fuengirola, Spain.
+We work directly with European and Latin American technology companies as embedded engineers — no middlemen, no account managers, no junior-heavy teams.
+
+## What we do
+
+- Custom Software Development: we design and build web applications, APIs, and platform integrations from the ground up
+- Technical Leadership: CTO-as-a-service, architecture reviews, engineering team setup and mentoring
+- Product Engineering: end-to-end product development from prototype to production
+- Legacy Modernisation: migration of legacy systems to modern architectures, cloud-native refactoring
+- Systems Integration: connecting third-party services, APIs, and data pipelines
+- Applied AI Engineering: pragmatic AI feature integration into existing products
+
+## How we work
+
+We work in small, senior teams. Clients get direct access to the engineers building their product.
+No sales process, no gatekeepers. We start with a brief and scope session, then design the solution, build iteratively, and provide ongoing support.
+
+## Our work
+
+- Multi-tenant accounting and ERP platform (SaaS)
+- IoT device monitoring platform
+- Pharma SaaS audit and modernisation
+- Player-driven marketplace platform
+- Water footprint calculator API
+
+## Contact
+
+- Website: https://wantedforcode.com
+- Email: contact@wantedforcode.com
+- LinkedIn: https://www.linkedin.com/company/wantedforcode
+- GitHub: https://github.com/wantedforcode
+
+## Sitemap
+
+- https://wantedforcode.com/ (English homepage)
+- https://wantedforcode.com/es/ (Spanish homepage)
+- https://wantedforcode.com/services/ — Engineering services
+- https://wantedforcode.com/about/ — About the team
+- https://wantedforcode.com/work/ — Portfolio and case studies
+- https://wantedforcode.com/blog/ — Engineering articles
+- https://wantedforcode.com/contact/ — Contact
