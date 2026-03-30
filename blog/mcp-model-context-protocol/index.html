@@ -1,0 +1,728 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCP: Connecting AI Agents to Your Business Systems — WantedForCode</title>
+  <meta name="description" content="We built a production MCP integration for a payroll platform. Here is what it unlocked, what it takes to build it safely, and why MCP is the right abstraction.">
+  <meta name="google-site-verification" content="Ahe8VURvXtE4nHhiedsFcTXqXyuDiMi53C-ITj_cJHg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wantedforcode.com/blog/mcp-model-context-protocol/">
+  <link rel="alternate" hreflang="en" href="https://wantedforcode.com/blog/mcp-model-context-protocol/">
+  <link rel="alternate" hreflang="es" href="https://wantedforcode.com/es/blog/mcp-protocolo-contexto-modelo/">
+  <link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/blog/mcp-model-context-protocol/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://wantedforcode.com/blog/mcp-model-context-protocol/">
+  <meta property="og:title" content="MCP: Connecting AI Agents to Your Business Systems">
+  <meta property="og:description" content="We built a production MCP integration for a payroll platform. Here is what it unlocked, what it takes to build it safely, and why MCP is the right abstraction.">
+  <meta property="og:image" content="https://wantedforcode.com/assets/images/blog/mcp-model-context-protocol/og.006c6cbe.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:site_name" content="WantedForCode">
+  <meta property="article:published_time" content="2026-03-25T09:00:00+01:00">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCP: Connecting AI Agents to Your Business Systems">
+  <meta name="twitter:description" content="We built a production MCP integration for a payroll platform. Here is what it unlocked, what it takes to build it safely, and why MCP is the right abstraction.">
+  <meta name="twitter:image" content="https://wantedforcode.com/assets/images/blog/mcp-model-context-protocol/og.006c6cbe.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/wantedforcode-favicon.854f681d.png">
+
+  <!-- Google Fonts: preconnect for early DNS/TCP resolution -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.631f9d9f.css">
+  <link rel="stylesheet" href="/assets/css/icons.5171f075.css">
+  <link rel="stylesheet" href="/assets/css/vendor.min.c119f828.css">
+  <link rel="stylesheet" href="/assets/css/main.67db46dc.css">
+  <link rel="stylesheet" href="/assets/css/custom-styles.af1b8426.css">
+
+  <!-- Structured Data: BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://wantedforcode.com/blog/mcp-model-context-protocol/#article",
+        "url": "https://wantedforcode.com/blog/mcp-model-context-protocol/",
+        "headline": "MCP: Connecting AI Agents to Your Business Systems",
+        "description": "We built a production MCP integration for a payroll platform. Here is what it unlocked, what it takes to build it safely, and why MCP is the right abstraction.",
+        "datePublished": "2026-03-25T09:00:00+01:00",
+        "dateModified": "2026-03-25T09:00:00+01:00",
+        "image": "https://wantedforcode.com/assets/images/blog/mcp-model-context-protocol/og.006c6cbe.jpg",
+        "author": {
+          "@type": "Organization",
+          "name": "WantedForCode",
+          "@id": "https://wantedforcode.com/#organization"
+        },
+        "publisher": {
+          "@id": "https://wantedforcode.com/#organization"
+        },
+        "isPartOf": {
+          "@id": "https://wantedforcode.com/blog/#webpage"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wantedforcode.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://wantedforcode.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "MCP: Connecting AI Agents to Your Business Systems", "item": "https://wantedforcode.com/blog/mcp-model-context-protocol/" }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="aec22bf1-4264-46ef-bb87-4d3f051dd84b" data-domains="wantedforcode.com"></script>
+</head>
+
+<body>
+  <div class="body-overlay"></div>
+
+  <!-- Preloader Start -->
+  <div class="tj-preloader is-loading">
+    <div class="tj-preloader-inner">
+      <div class="tj-preloader-ball-wrap">
+        <div class="tj-preloader-ball-inner-wrap">
+          <div class="tj-preloader-ball-inner">
+            <div class="tj-preloader-ball"></div>
+          </div>
+          <div class="tj-preloader-ball-shadow"></div>
+        </div>
+        <div id="tj-weave-anim" class="tj-preloader-text">Loading...</div>
+      </div>
+    </div>
+    <div class="tj-preloader-overlay"></div>
+  </div>
+  <!-- Preloader end -->
+
+  <!-- back to top start -->
+  <div id="tj-back-to-top"><span id="tj-back-to-top-percentage"></span></div>
+  <!-- back to top end -->
+
+  <!-- start: Offcanvas Menu -->
+  <div class="tj-offcanvas-area d-none d-lg-block">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="/" class="mobile_logo">
+              <img src="/assets/images/logos/wantedforcode-logo-white.15329dfa.webp" alt="WantedForCode" width="190" height="160">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn" aria-label="Close menu"><i class="wfc-icon wfc-icon-times"></i></button>
+          </div>
+        </div>
+        <div class="hamburger-infos">
+          <h5 class="hamburger-title">Contact Info</h5>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="subtitle">Email</span>
+              <a class="contact-link" href="mailto:contact@wantedforcode.com">contact@wantedforcode.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="subtitle">Location</span>
+              <span class="contact-link">Calle San Miguel 3, Portal 9, 2B<br>29640 Fuengirola, Málaga<br>Spain</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger-socials">
+        <h5 class="hamburger-title">Follow Us</h5>
+        <div class="social-links style-3">
+          <ul>
+            <li><a href="https://www.linkedin.com/company/wantedforcode" target="_blank" rel="noopener noreferrer" aria-label="WantedForCode on LinkedIn"><i class="wfc-icon wfc-icon-linkedin"></i></a></li>
+            <li><a href="https://github.com/wantedforcode" target="_blank" rel="noopener noreferrer" aria-label="WantedForCode on GitHub"><i class="wfc-icon wfc-icon-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Offcanvas Menu -->
+
+  <!-- start: Hamburger Menu -->
+  <div class="hamburger-area d-lg-none">
+    <div class="hamburger_bg"></div>
+    <div class="hamburger_wrapper">
+      <div class="hamburger_inner">
+        <div class="hamburger_top d-flex align-items-center justify-content-between">
+          <div class="hamburger_logo">
+            <a href="/" class="mobile_logo">
+              <img src="/assets/images/logos/wantedforcode-logo-white.15329dfa.webp" alt="WantedForCode" width="190" height="160">
+            </a>
+          </div>
+          <div class="hamburger_close">
+            <button class="hamburger_close_btn" aria-label="Close menu"><i class="wfc-icon wfc-icon-times"></i></button>
+          </div>
+        </div>
+        <div class="hamburger_menu">
+          <div class="mobile_menu"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end: Hamburger Menu -->
+
+  <!-- start: Header Area -->
+  <header class="header-area header-1 section-gap-x">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-wrapper">
+            <div class="site_logo">
+              <a class="logo" href="/"><img src="/assets/images/logos/wantedforcode-logo.3359023f.webp" alt="WantedForCode" width="190" height="160"></a>
+            </div>
+            <div class="menu-area d-none d-lg-inline-flex align-items-center">
+              <nav id="mobile-menu" class="mainmenu">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about/">About</a></li>
+                  <li><a href="/services/">Services</a></li>
+                  <li><a href="/work/">Work</a></li>
+                  <li class="active"><a href="/blog/">Blog</a></li>
+                  <li><a href="/contact/">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="header-right-item d-none d-lg-inline-flex">
+              <div class="header-button">
+                <a class="tj-primary-btn" href="/contact/">
+                  <span class="btn-text"><span>Start a Conversation</span></span>
+                  <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                </a>
+              </div>
+              <a class="lang-switcher-btn" href="/es/blog/mcp-protocolo-contexto-modelo/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar menu_offcanvas d-none d-lg-inline-flex">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="header-mobile-actions d-flex align-items-center gap-2 d-lg-none">
+              <a class="lang-switcher-btn" href="/es/blog/mcp-protocolo-contexto-modelo/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar mobile_menu_bar">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- start: Header sticky -->
+  <header class="header-area header-1 header-duplicate header-sticky section-gap-x">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-wrapper">
+            <div class="site_logo">
+              <a class="logo" href="/"><img src="/assets/images/logos/wantedforcode-logo.3359023f.webp" alt="WantedForCode" width="190" height="160"></a>
+            </div>
+            <div class="menu-area d-none d-lg-inline-flex align-items-center">
+              <nav class="mainmenu">
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about/">About</a></li>
+                  <li><a href="/services/">Services</a></li>
+                  <li><a href="/work/">Work</a></li>
+                  <li class="active"><a href="/blog/">Blog</a></li>
+                  <li><a href="/contact/">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="header-right-item d-none d-lg-inline-flex">
+              <div class="header-button">
+                <a class="tj-primary-btn" href="/contact/">
+                  <span class="btn-text"><span>Start a Conversation</span></span>
+                  <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                </a>
+              </div>
+              <a class="lang-switcher-btn" href="/es/blog/mcp-protocolo-contexto-modelo/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar menu_offcanvas d-none d-lg-inline-flex">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="header-mobile-actions d-flex align-items-center gap-2 d-lg-none">
+              <a class="lang-switcher-btn" href="/es/blog/mcp-protocolo-contexto-modelo/" aria-label="Cambiar a español">ES</a>
+              <div class="menu_bar mobile_menu_bar">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end: Header Area -->
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main>
+
+        <!-- start: Page Header -->
+        <section class="tj-page-header section-gap-x" data-bg-image="/assets/images/bg/pheader-bg.d11eeaad.webp">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="tj-page-header-content text-center">
+                  <h1 class="tj-page-title">MCP: Connecting AI Agents to Your Business Systems</h1>
+                  <div class="tj-page-link">
+                    <span><i class="tji-home"></i></span>
+                    <span><a href="/">Home</a></span>
+                    <span><i class="tji-arrow-right"></i></span>
+                    <span><a href="/blog/">Blog</a></span>
+                    <span><i class="tji-arrow-right"></i></span>
+                    <span>MCP Integration</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-header-overlay" data-bg-image="/assets/images/shape/pheader-overlay.c94c2902.webp"></div>
+        </section>
+        <!-- end: Page Header -->
+
+        <!-- start: Blog Section -->
+        <section class="tj-blog-section section-gap slidebar-stickiy-container">
+          <div class="container">
+            <div class="row row-gap-5">
+
+              <!-- Main content: 8/12 -->
+              <div class="col-lg-8">
+                <div class="post-details-wrapper">
+
+                  <!-- Hero image -->
+                  <div class="blog-images wow fadeInUp" data-wow-delay=".1s">
+                    <img src="/assets/images/blog/mcp-model-context-protocol/hero.7bc3d328.jpg" alt="Architecture diagram showing an AI assistant connected to a payroll system via MCP" loading="eager">
+                  </div>
+
+                  <!-- Post title -->
+                  <h2 class="title title-anim">MCP: Connecting AI Agents to Your Business Systems</h2>
+
+                  <!-- Post meta: author, date, category, read time -->
+                  <div class="blog-category-two wow fadeInUp" data-wow-delay=".2s">
+                    <div class="category-item">
+                      <div class="cate-images">
+                        <img src="/assets/images/team/team-1-avatar.696707e6.webp" alt="Carlos Bourque" class="author-avatar">
+                      </div>
+                      <div class="cate-text">
+                        <span class="degination">Author</span>
+                        <h6 class="title">Carlos Bourque</h6>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="cate-icons">
+                        <i class="tji-calendar"></i>
+                      </div>
+                      <div class="cate-text">
+                        <span class="degination">Published</span>
+                        <h6 class="text">March 25, 2026</h6>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="cate-icons">
+                        <i class="tji-clock"></i>
+                      </div>
+                      <div class="cate-text">
+                        <span class="degination">Read time</span>
+                        <h6 class="text">8 min</h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Article body — full HTML authored per post -->
+                  <div class="blog-text">
+                    <p class="wow fadeInUp" data-wow-delay=".1s">Every major business system — ERP, payroll, HR, CRM — was designed to be queried through a UI or an API. That was a reasonable design decision for a world where humans were the only consumers of that data. You built a dashboard, you trained your team, you exported a report when the CFO asked a question. It worked.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">Now AI agents are consumers too. They need to read your data, reason over it, and act on it — in real time, in natural language, as part of a conversation. The interface hasn't caught up. Most enterprise systems are still waiting behind a UI that an AI can't navigate, or behind an API that wasn't designed with AI in mind.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">Model Context Protocol (MCP) is what closes that gap. It's an open standard that gives AI assistants a structured, consistent way to discover what a system can do and call it directly. We've built it in production. This post is about what that actually means — for the systems you run today and the AI clients that will need to talk to them tomorrow.</p>
+
+<div class="mcp-explainer-box wow fadeInUp" data-wow-delay=".1s">
+  <h4>MCP in 60 seconds</h4>
+  <p>MCP is a JSON-RPC protocol with a clean three-layer architecture: an <strong>MCP host</strong> (the AI application — ChatGPT, Claude, VS Code) runs an <strong>MCP client</strong> that connects to your <strong>MCP server</strong>, which exposes tools, resources, and prompts in a structured way. The host discovers what your system can do, then calls those capabilities on demand. That's it.</p>
+  <p>Two transport modes: <strong>stdio</strong> for local servers, <strong>Streamable HTTP</strong> for remote deployments. The spec is open, versioned (current revision: 2025&#8209;11&#8209;25), and now governed by the Linux Foundation&#8217;s Agentic AI Foundation. Version negotiation happens during initialisation &#8212; client and server agree on a common protocol revision before any tool call is made.</p>
+</div>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">The Integration Tax Nobody Talks About</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">Before MCP, connecting AI models to business systems meant writing custom integrations — one per model, one per system. If you have four systems and you want to connect them to three AI clients (say, Claude, ChatGPT, and Microsoft Copilot), you're looking at twelve bespoke integrations. Each one needs its own prompt engineering, its own API wrapper, its own maintenance. Add a new system, add N more integrations. Add a new AI client, add M more.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">The industry has started calling MCP "USB-C for AI" — the analogy comes from BCG — who coined the phrase, and it's accurate. Before USB-C, every device had its own port. Before MCP, every AI-system pair needed its own connector. MCP collapses the N×M problem into N+M: build one MCP server per system, and any compliant AI client can connect to it. That's not a marketing claim — it's an architectural property of the protocol.</p>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">What Changes When Your System Gets an MCP Interface</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">The easiest way to understand the value: through what becomes possible, not through how it works. When a system has an MCP server, an AI assistant can answer questions against live production data in a single natural-language exchange — no SQL, no BI exports, no switching tabs.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">We built an MCP server for a multi-tenant payroll and HR platform. Here's what that looks like in practice:</p>
+
+<div class="use-case-grid wow fadeInUp" data-wow-delay=".2s">
+  <div class="use-case-card">
+    <div class="use-case-icon"><i class="tji-check"></i></div>
+    <h4>Compliance checks in seconds.</h4>
+    <p>"Which employees are missing a payroll this month?" The AI queries the live system, identifies the gaps, and returns a structured answer. What used to require knowing where to look and how to filter now happens in one question.</p>
+  </div>
+  <div class="use-case-card">
+    <div class="use-case-icon"><i class="tji-chart"></i></div>
+    <h4>Trend analysis without a report.</h4>
+    <p>"How has our total employer cost evolved over the last 6 months?" The AI pulls the data across the period and surfaces the trend. No export, no pivot table, no waiting for the analyst.</p>
+  </div>
+  <div class="use-case-card">
+    <div class="use-case-icon"><i class="tji-list"></i></div>
+    <h4>Document retrieval on demand.</h4>
+    <p>"Pull me the January payslip for this employee." The document is retrieved and delivered inside the conversation. The AI handles the lookup; the user gets the file.</p>
+  </div>
+</div>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">This is not a demo environment with synthetic data. These are real queries against a live production system, executed through MCP. And the pattern generalises — ERP inventory, CRM pipeline, project management, logistics. Any system with structured data can have this interface. The questions change; the architecture doesn't.</p>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">Real Conversations, Real Data</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">Below are two screenshots from actual sessions with the MCP integration in place. These are not mock-ups. The AI assistant has no custom front-end — it's talking directly to the payroll system through MCP, reading live data, and returning answers in the same conversational thread.</p>
+
+<div class="images-wrap wow fadeInUp" data-wow-delay=".3s"><div class="row"><div class="col-12"><div class="image-box"><img src="/assets/images/blog/mcp-model-context-protocol/demo-compliance.48244438.png" alt="AI assistant answering a compliance question against live payroll data via MCP" loading="lazy"></div><p class="post-figure-caption">A compliance check — identifying payroll gaps for the current month — answered in a single natural-language question against live production data.</p></div></div></div>
+
+<div class="images-wrap wow fadeInUp" data-wow-delay=".3s"><div class="row"><div class="col-12"><div class="image-box"><img src="/assets/images/blog/mcp-model-context-protocol/demo-evolution.52a07ff1.png" alt="AI assistant showing employer cost evolution over the last 6 months via MCP" loading="lazy"></div><p class="post-figure-caption">Employer cost trend analysis over the last 6 months, pulled from live data and returned in conversation — without a dashboard or BI export.</p></div></div></div>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">Why This Is Different From Just Using an API</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">If you already have APIs, this is the natural question. APIs are well understood, well deployed, and your teams know how to build them. Why add another layer?</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">The difference is in who — or what — is calling them. APIs were designed for code that knows exactly what to call and when. MCP is designed for AI models that need to figure that out themselves. A few specific differences that matter in practice:</p>
+
+<ul class="mcp-feature-list wow fadeInUp" data-wow-delay=".2s">
+  <li>
+    <span class="feature-check">&#10003;</span>
+    <div class="feature-content">
+      <strong>Any MCP-capable host can connect &#8212; portability is the point.</strong>
+      <p>ChatGPT, Claude, VS Code Copilot and others support MCP natively. Each host has its own UX, security gates, and entitlement model &#8212; that&#8217;s real, and your MCP server needs to account for it. The server is built once; the clients are yours to choose.</p>
+    </div>
+  </li>
+  <li>
+    <span class="feature-check">&#10003;</span>
+    <div class="feature-content">
+      <strong>Stateful sessions and structured auth.</strong>
+      <p>MCP supports stateful sessions (Streamable HTTP transports can assign a session ID that clients carry on subsequent requests) and defines an OAuth-based authorisation flow for HTTP deployments. The host still controls what context is shared and when tools are invoked &#8212; MCP provides the structured surface; your server governs the boundaries.</p>
+    </div>
+  </li>
+  <li>
+    <span class="feature-check">&#10003;</span>
+    <div class="feature-content">
+      <strong>Tool discovery is dynamic.</strong>
+      <p>The AI learns what tools are available at runtime via capability negotiation during initialisation. New capabilities become available to every connected client without code changes on the client side.</p>
+    </div>
+  </li>
+  <li>
+    <span class="feature-check">&#10003;</span>
+    <div class="feature-content">
+      <strong>The model decides when to use a tool.</strong>
+      <p>You describe what each capability does. The model reasons about when to call it, in what order, with what parameters. This is qualitatively different from an API call sequence you&#8217;ve hardcoded in advance &#8212; it adapts to the question being asked.</p>
+    </div>
+  </li>
+</ul>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">An API gives a machine a door. MCP gives an AI a map of the building, the keys, and the judgment to navigate it.</p>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">Dashboards Were Just the Beginning</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">For three decades, companies consumed their operational data through reports and dashboards. Those tools were designed for humans who navigate UIs, run queries on a schedule, and share static exports. They answer "what happened." They don't answer "why" or "what should I do about it."</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">Conversational interfaces answer all three. And they're accessible to everyone in the company — not just the analyst who knows how to build a report or the engineer who can write the query. When the data lives behind an MCP server, the question becomes the interface.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">This is not a prediction about the distant future. Block has documented rolling out company-wide MCP integrations in weeks. MCP's governance has since moved to the Linux Foundation's Agentic AI Foundation — with broad industry backing including Bloomberg — signalling this is infrastructure, not a trend. Gartner forecasts that 40% of enterprise applications will be integrated with task-specific AI agents by end of 2026 — up from under 5% today — with AI systems acting on behalf of users, not just responding to them. The question isn't whether this shift happens. It's whether your systems are ready for it when it does.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">An MCP server is how you make your systems AI-ready. Once it exists, every new AI client — current or future — connects to it out of the box. You're not building for one integration. You're building the infrastructure that every integration will use.</p>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">What It Actually Takes to Build This in Production</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">A working MCP demo is not a production MCP integration. The gap between them is where most of the engineering happens. A few things we ran into that anyone building this seriously will face: data minimisation and pseudonymisation must be designed in from the start — resolve sensitive identifiers server-side, under RBAC and audit, before any data reaches the AI context. MCP defines two transport modes — stdio for local servers and Streamable HTTP for remote deployments. In practice, API gateways that don't support streaming well become the main deployment bottleneck — we hit this with a specific deployment target and had to design around it. And AI models don't always use the context you give them exactly as you expect — production resilience means handling model behaviour that deviates from the happy path.</p>
+<p class="wow fadeInUp" data-wow-delay=".1s">The MCP spec is unusually direct about what is at stake: it explicitly calls out that MCP can enable arbitrary data access and code execution paths, and places the responsibility for consent, tool safety, privacy, and audit squarely on the implementor. We treat this as infrastructure design, not an afterthought. Every tool we expose goes through a risk classification against these four dimensions before it reaches production.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">A concrete example of the client fragmentation problem: delivering a PDF document through MCP. A local file URI approach works cleanly in developer tooling like VS Code. It breaks entirely in Claude.ai web and ChatGPT, which run in sandboxed browser contexts that can't access the local filesystem. Solving this required a different delivery mechanism that works across all clients — not just the first one you test against. MCP client fragmentation is real, and it requires deliberate design decisions rather than assuming the first working approach is the portable one.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">The integration we shipped covers a full OAuth stack, a multi-tenant permission model, and over 230 tests. It runs across VS Code Copilot, Claude Desktop, Claude.ai web, and ChatGPT. We know what the hard parts are because we've built through them.</p>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">WantedForCode Can Build This for Your System</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">We've built a production MCP integration for a multi-tenant payroll and HR platform. We know the architecture, the security decisions, the deployment constraints, and how to make the same server work reliably across different AI clients. That knowledge transfers directly to other systems.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">If your platform has data that your team, your customers, or your AI agents should be able to access through conversation — we can build the integration. This isn't a capability we're proposing in theory. It's something we've shipped. If you're evaluating whether to invest in MCP for your system, start with what your data looks like and what queries your users actually need answered. That's where we start too.</p>
+
+<h3 class="wow fadeInUp" data-wow-delay=".3s">The Infrastructure You'll Want to Have Built Already</h3>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">The companies moving fastest with AI right now are the ones whose systems were already instrumented when the need arrived. An MCP server is infrastructure in that sense — it doesn't do anything visible on its own, but it's what makes every AI client that comes after it work without additional integration effort.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">The companies that don't have it will be building N×M integrations for years — one per model, one per system, as the AI landscape keeps fragmenting. The companies that do have it will connect new clients in days. That's the compounding advantage of building the right abstraction once, rather than building connectors indefinitely.</p>
+
+<p class="wow fadeInUp" data-wow-delay=".1s">In two weeks:</p>
+<ul class="mcp-feature-list wow fadeInUp" data-wow-delay=".2s">
+  <li>
+    <span class="feature-check">&#10003;</span>
+    <div class="feature-content">
+      <strong>Week 1</strong>
+      <p>Map your top use cases onto an MCP tool surface. Define scopes, tenancy model, and auth boundaries. Identify the risk classes for each tool (data access, code execution, privacy exposure).</p>
+    </div>
+  </li>
+  <li>
+    <span class="feature-check">&#10003;</span>
+    <div class="feature-content">
+      <strong>Week 2</strong>
+      <p>Working prototype server. Rollout plan across ChatGPT, Claude, and Copilot. Risk register and audit plan. No slideware &#8212; an actual implementation roadmap.</p>
+    </div>
+  </li>
+</ul>
+<p class="wow fadeInUp" data-wow-delay=".1s"><a href="/contact/">Let&#8217;s talk.</a></p>
+                  </div>
+                  <!-- end: Article body -->
+
+                  <!-- Tags + Share bar -->
+                  <div class="tj-tags-post wow fadeInUp" data-wow-delay=".3s">
+                    <div class="tagcloud">
+                      <span>Tags:</span>
+                      <a href="/blog/">AI</a><a href="/blog/">MCP</a><a href="/blog/">Payroll</a><a href="/blog/">HR Tech</a><a href="/blog/">Enterprise</a>
+                    </div>
+                    <div class="post-share">
+                      <ul>
+                        <li>Share:</li>
+                        <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwantedforcode.com%2Fblog%2Fmcp-model-context-protocol%2F&text=MCP%3A+Connecting+AI+Agents+to+Your+Business+Systems" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><i class="wfc-icon wfc-icon-x-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwantedforcode.com%2Fblog%2Fmcp-model-context-protocol%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="wfc-icon wfc-icon-linkedin"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Post prev/next navigation -->
+                  <div class="tj-post__navigation wow fadeInUp" data-wow-delay=".3s">
+                    <div class="tj-nav__post previous">
+                      <div class="tj-nav-post__nav prev_post">
+                        <a href="/blog/"><span><i class="tji-arrow-left"></i></span>Previous</a>
+                      </div>
+                    </div>
+                    <div class="tj-nav-post__grid">
+                      <a href="/blog/" aria-label="All Posts"><i class="tji-window"></i></a>
+                    </div>
+                    <div class="tj-nav__post next">
+                      <div class="tj-nav-post__nav next_post">
+                        <a href="/blog/">Next<span><i class="tji-arrow-right"></i></span></a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- end: Main content -->
+
+              <!-- Sidebar: 4/12 -->
+              <div class="col-lg-4">
+                <div class="tj-main-sidebar slidebar-stickiy">
+
+                  <!-- About widget -->
+                  <div class="tj-sidebar-widget wow fadeInUp" data-wow-delay=".1s">
+                    <h4 class="widget-title">About WantedForCode</h4>
+                    <div class="footer-text">
+                      <p>We build production-grade software and AI integrations for companies that need things done properly. Based in Europe, working globally.</p>
+                    </div>
+                    <div class="social-links style-3 mt-20">
+                      <ul>
+                        <li><a href="https://www.linkedin.com/company/wantedforcode" target="_blank" rel="noopener noreferrer" aria-label="WantedForCode on LinkedIn"><i class="wfc-icon wfc-icon-linkedin"></i></a></li>
+                        <li><a href="https://github.com/wantedforcode" target="_blank" rel="noopener noreferrer" aria-label="WantedForCode on GitHub"><i class="wfc-icon wfc-icon-github"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Category widget -->
+                  <div class="tj-sidebar-widget widget-categories wow fadeInUp" data-wow-delay=".3s">
+                    <h4 class="widget-title">Category</h4>
+                    <ul>
+                      <li><a href="/blog/">Applied AI<span class="number">(01)</span></a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Related Posts widget -->
+                  <div class="tj-sidebar-widget tj-recent-posts wow fadeInUp" data-wow-delay=".4s">
+                    <h4 class="widget-title">Related Posts</h4>
+                    <ul>
+                      <li>
+                        <div class="post-thumb">
+                          <a href="/blog/"><img src="/assets/images/blog/mcp-model-context-protocol/hero.7bc3d328.jpg" alt="Coming Soon: AI Agent Patterns for Enterprise Systems"></a>
+                        </div>
+                        <div class="post-content">
+                          <h6 class="post-title"><a href="/blog/">Coming Soon: AI Agent Patterns for Enterprise Systems</a></h6>
+                          <div class="blog-meta"><ul><li>Coming soon</li></ul></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="post-thumb">
+                          <a href="/blog/"><img src="/assets/images/blog/mcp-model-context-protocol/hero.7bc3d328.jpg" alt="More Posts Coming Soon"></a>
+                        </div>
+                        <div class="post-content">
+                          <h6 class="post-title"><a href="/blog/">More Posts Coming Soon</a></h6>
+                          <div class="blog-meta"><ul><li>Stay tuned</li></ul></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Tag Cloud widget -->
+                  <div class="tj-sidebar-widget widget-tag-cloud wow fadeInUp" data-wow-delay=".6s">
+                    <h4 class="widget-title">Tags</h4>
+                    <nav>
+                      <div class="tagcloud">
+                        <a href="/blog/">AI</a><a href="/blog/">MCP</a><a href="/blog/">Payroll</a><a href="/blog/">HR Tech</a><a href="/blog/">Enterprise</a>
+                      </div>
+                    </nav>
+                  </div>
+
+                  <!-- Get in touch CTA widget -->
+                  <div class="tj-sidebar-widget wow fadeInUp" data-wow-delay=".5s">
+                    <h4 class="widget-title">Work With Us</h4>
+                    <div class="footer-text">
+                      <p>Have a project in mind? Let us talk about what we can build together.</p>
+                    </div>
+                    <div class="cta-btn mt-20">
+                      <a class="tj-primary-btn" href="/contact/">
+                        <span class="btn-text"><span>Get in Touch</span></span>
+                        <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- end: Sidebar -->
+
+            </div>
+          </div>
+        </section>
+        <!-- end: Blog Section -->
+
+        <!-- start: CTA Section -->
+        <section class="tj-cta-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="cta-area">
+                  <div class="cta-content">
+                    <h2 class="title title-anim">Got a Project in Mind?</h2>
+                    <div class="cta-btn wow fadeInUp" data-wow-delay=".6s">
+                      <a class="tj-primary-btn btn-dark" href="/contact/">
+                        <span class="btn-text"><span>Talk to an Engineer</span></span>
+                        <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="cta-img">
+                    <img src="/assets/images/cta/h7-cta-bg.41173bc6.webp" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end: CTA Section -->
+
+      </main>
+
+      <!-- start: Footer Section -->
+      <footer class="tj-footer-section footer-2 h5-footer section-gap-x">
+        <div class="footer-main-area">
+          <div class="container">
+            <div class="row justify-content-between">
+              <div class="col-xl-4 col-md-6">
+                <div class="footer-widget footer-col-1 wow fadeInUp" data-wow-delay=".1s">
+                  <div class="footer-logo">
+                    <a href="/">
+                      <img src="/assets/images/logos/wantedforcode-logo.3359023f.webp" alt="WantedForCode" width="190" height="160">
+                    </a>
+                  </div>
+                  <div class="footer-text">
+                    <p>Senior engineers working directly with your team. No account managers, no layers in between.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                <div class="footer-widget widget-contact wow fadeInUp" data-wow-delay=".3s">
+                  <h5 class="title">Let's Talk</h5>
+                  <div class="footer-contact-info">
+                    <div class="contact-item">
+                      <span>Calle San Miguel 3, Portal 9, 2B<br>29640 Fuengirola, Málaga<br>Spain</span>
+                    </div>
+                    <div class="contact-item">
+                      <a href="mailto:contact@wantedforcode.com">contact@wantedforcode.com</a>
+                    </div>
+                    <div class="contact-item">
+                      <span><i class="tji-clock"></i> Mon–Fri, 9am–6pm CET</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tj-copyright-area-2 h5-footer-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="copyright-content-area">
+                  <div class="copyright-text">
+                    <p>© 2026 WantedForCode. All rights reserved.</p>
+                  </div>
+                  <div class="social-links style-3">
+                    <ul>
+                      <li><a href="https://www.linkedin.com/company/wantedforcode" target="_blank" rel="noopener noreferrer" aria-label="WantedForCode on LinkedIn"><i class="wfc-icon wfc-icon-linkedin"></i></a></li>
+                      <li><a href="https://github.com/wantedforcode" target="_blank" rel="noopener noreferrer" aria-label="WantedForCode on GitHub"><i class="wfc-icon wfc-icon-github"></i></a></li>
+                    </ul>
+                  </div>
+                  <div class="copyright-menu">
+                    <ul>
+                      <li><a href="/legal/">Legal Notice & Privacy Policy</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-shape-1">
+          <img src="/assets/images/shape/pattern-2.37d4373c.svg" alt="" width="370" height="590" loading="lazy" decoding="async">
+        </div>
+        <div class="bg-shape-2">
+          <img src="/assets/images/shape/pattern-3.17051e4a.svg" alt="" width="370" height="590" loading="lazy" decoding="async">
+        </div>
+      </footer>
+      <!-- end: Footer Section -->
+    </div>
+  </div>
+
+  <!-- JS here -->
+  <script src="/assets/js/jquery.min.3e7501d1.js" defer></script>
+  <script src="/assets/js/validate.min.f54adadd.js" defer></script>
+  <script src="/assets/js/bootstrap.bundle.min.82f64f62.js" defer></script>
+  <script src="/assets/js/gsap.min.6f493ad8.js" defer></script>
+  <script src="/assets/js/ScrollSmoother.5c42b65d.js" defer></script>
+  <script src="/assets/js/gsap-scroll-to-plugin.min.20f62ace.js" defer></script>
+  <script src="/assets/js/gsap-scroll-trigger.min.ecd5ec77.js" defer></script>
+  <script src="/assets/js/gsap-split-text.min.598794cf.js" defer></script>
+  <script src="/assets/js/jquery.nice-select.min.66bdef07.js" defer></script>
+  <script src="/assets/js/swiper.min.55aa3f96.js" defer></script>
+  <script src="/assets/js/odometer.min.03c1e188.js" defer></script>
+  <script src="/assets/js/venobox.min.07a54858.js" defer></script>
+  <script src="/assets/js/appear.min.2597615b.js" defer></script>
+  <script src="/assets/js/wow.min.0ec632e6.js" defer></script>
+  <script src="/assets/js/meanmenu.44ee2468.js" defer></script>
+  <script src="/assets/js/main.65c27e42.js" defer></script>
+</body>
+
+</html>
+
