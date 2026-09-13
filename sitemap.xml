@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://wantedforcode.com/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://wantedforcode.com/about/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/nosotros/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/about/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/nosotros/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/nosotros/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/about/"/>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://wantedforcode.com/services/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/services/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/servicios/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/services/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/servicios/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/services/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/servicios/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/services/"/>
+  </url>
+
+  <!-- Work / Portfolio -->
+  <url>
+    <loc>https://wantedforcode.com/work/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/work/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/proyectos/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/work/"/>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://wantedforcode.com/contact/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/contact/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/contacto/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/contact/"/>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://wantedforcode.com/blog/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/blog/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/blog/"/>
+  </url>
+
+  <!-- Careers -->
+  <url>
+    <loc>https://wantedforcode.com/careers/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/careers/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/empleo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/careers/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/empleo/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/careers/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/empleo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/careers/"/>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://wantedforcode.com/legal/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/legal/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/legal/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/legal/</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/legal/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/legal/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/blog/mcp-model-context-protocol/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/blog/mcp-model-context-protocol/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/blog/mcp-protocolo-contexto-modelo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/blog/mcp-model-context-protocol/"/>
+  </url>
+  <url>
+    <loc>https://wantedforcode.com/es/blog/mcp-protocolo-contexto-modelo/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://wantedforcode.com/blog/mcp-model-context-protocol/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://wantedforcode.com/es/blog/mcp-protocolo-contexto-modelo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wantedforcode.com/blog/mcp-model-context-protocol/"/>
+  </url>
+
+</urlset>
